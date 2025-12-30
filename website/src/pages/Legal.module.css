@@ -1,0 +1,68 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.updated {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.container section {
+  margin-bottom: 2rem;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.container h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text);
+}
+
+.container p {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.container ul {
+  margin: 0 0 1rem 1.5rem;
+  color: var(--text);
+}
+
+.container li {
+  margin-bottom: 0.5rem;
+}
+
+.container a {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container h2 {
+    font-size: 1.25rem;
+  }
+}
