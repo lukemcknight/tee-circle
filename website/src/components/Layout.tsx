@@ -5,7 +5,10 @@ export function Layout() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to="/" className={styles.logo}>TeeCircle</Link>
+        <Link to="/" className={styles.logo}>
+          <img src="/favicon.png" alt="TeeCircle" className={styles.logoIcon} />
+          TeeCircle
+        </Link>
         <nav className={styles.nav}>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
