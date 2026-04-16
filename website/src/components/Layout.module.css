@@ -5,12 +5,17 @@
 }
 
 .header {
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 1rem 2rem;
+  padding: 0.875rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
@@ -24,9 +29,9 @@
 }
 
 .logoIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
 }
 
 .logo:hover {
@@ -41,6 +46,8 @@
 .nav a {
   color: var(--muted);
   font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
 }
 
 .nav a:hover {
@@ -53,9 +60,8 @@
 }
 
 .footer {
-  background: var(--card);
-  border-top: 1px solid var(--border);
-  padding: 2rem;
+  background: var(--text);
+  padding: 2.5rem 2rem;
 }
 
 .footerContent {
@@ -69,7 +75,7 @@
 }
 
 .footerContent p {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.875rem;
 }
 
@@ -79,17 +85,19 @@
 }
 
 .footerLinks a {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.875rem;
+  transition: color 0.15s ease;
 }
 
 .footerLinks a:hover {
-  color: var(--primary);
+  color: var(--accent);
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
   .header {
-    padding: 1rem;
+    padding: 0.875rem 1rem;
   }
 
   .footerContent {

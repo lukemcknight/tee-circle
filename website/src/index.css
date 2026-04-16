@@ -7,11 +7,30 @@
 :root {
   --primary: #4A7C59;
   --primary-dark: #3d6649;
+  --primary-light: #5a9a6e;
+  --accent: #2BF06E;
   --background: #F5F5F5;
   --card: #FFFFFF;
   --text: #1A1A1A;
   --muted: #6B7280;
   --border: #E5E5E5;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body {
