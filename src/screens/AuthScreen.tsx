@@ -8,23 +8,22 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, radii, spacing, typography } from '../theme';
+import { colors, darkColors } from '../theme';
 import { RootStackParamList } from '../navigation/types';
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../lib/supabase';
 import { isValidEmail } from '../utils/validation';
 import { getUsernameError } from '../utils/username';
+import { AuthBackground } from '../components/AuthBackground';
+import { GlassInput } from '../components/GlassInput';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
-
-
 
 export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
   const { signIn, signUp, initializing } = useAuth();
@@ -106,6 +105,16 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
     setResetSent(true);
   };
 
+  const eyeToggle = (
+    <Pressable onPress={() => setShowPassword(!showPassword)} hitSlop={8}>
+      <Ionicons
+        name={showPassword ? 'eye-off' : 'eye'}
+        size={20}
+        color={darkColors.textSecondary}
+      />
+    </Pressable>
+  );
+
   if (initializing) {
     return (
       <View style={styles.loadingContainer}>
@@ -115,37 +124,27 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.flex}
-      >
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
+    <AuthBackground>
+      <StatusBar style="light" />
+      <SafeAreaView edges={['top']} style={styles.flex}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.flex}
         >
-          {/* Header */}
-          <LinearGradient
-            colors={[colors.primary, colors.background]}
-            start={{ x: 0.5, y: 0 }}
-            end={{ x: 0.5, y: 1 }}
-            style={styles.headerImage}
+          <ScrollView
+            contentContainerStyle={styles.scrollContent}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
           >
-            {/* Decorative circles */}
-            <View style={styles.decoCircle1} />
-            <View style={styles.decoCircle2} />
-            <View style={styles.decoCircle3} />
             {/* Brand */}
             <View style={styles.brandContainer}>
-              <Image source={require('../../assets/icon.png')} style={styles.logoImage} />
+              <View style={styles.logoContainer}>
+                <View style={styles.logoGlow} />
+                <Image source={require('../../assets/icon.png')} style={styles.logoImage} />
+              </View>
               <Text style={styles.brandName}>TeeCircle</Text>
-              <Text style={styles.brandTagline}>Your Golf Circle, simplified.</Text>
             </View>
-          </LinearGradient>
 
-          {/* Main Content */}
-          <View style={styles.content}>
             {/* Headline */}
             <Text style={styles.headline}>Welcome to the Club</Text>
 
@@ -179,48 +178,31 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
             <View style={styles.form}>
               {authMode === 'login' ? (
                 <>
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>EMAIL</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={styles.input}
-                        placeholder="birdie_king@example.com"
-                        placeholderTextColor={colors.placeholder}
-                        value={identifier}
-                        onChangeText={(v) => {
-                          setIdentifier(v);
-                          setAuthError(null);
-                        }}
-                        autoCapitalize="none"
-                        keyboardType="email-address"
-                        autoComplete="email"
-                      />
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Email"
+                    placeholder="birdie_king@example.com"
+                    value={identifier}
+                    onChangeText={(v) => {
+                      setIdentifier(v);
+                      setAuthError(null);
+                    }}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    autoComplete="email"
+                  />
 
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>PASSWORD</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={[styles.input, styles.inputWithIcon]}
-                        placeholder="••••••••"
-                        placeholderTextColor={colors.placeholder}
-                        value={loginPassword}
-                        onChangeText={(v) => {
-                          setLoginPassword(v);
-                          setAuthError(null);
-                        }}
-                        secureTextEntry={!showPassword}
-                        autoComplete="password"
-                      />
-                      <Pressable
-                        style={styles.eyeButton}
-                        onPress={() => setShowPassword(!showPassword)}
-                      >
-                        <Ionicons name={showPassword ? 'eye-off' : 'eye'} size={20} color={colors.placeholder} />
-                      </Pressable>
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Password"
+                    placeholder="••••••••"
+                    value={loginPassword}
+                    onChangeText={(v) => {
+                      setLoginPassword(v);
+                      setAuthError(null);
+                    }}
+                    secureTextEntry={!showPassword}
+                    autoComplete="password"
+                    rightIcon={eyeToggle}
+                  />
 
                   <Pressable style={styles.forgotButton} onPress={handleForgotPassword}>
                     <Text style={styles.forgotText}>Forgot Password?</Text>
@@ -228,83 +210,54 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
                 </>
               ) : (
                 <>
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>FULL NAME</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={styles.input}
-                        placeholder="Tiger Woods"
-                        placeholderTextColor={colors.placeholder}
-                        value={name}
-                        onChangeText={(v) => {
-                          setName(v);
-                          setAuthError(null);
-                        }}
-                        autoComplete="name"
-                      />
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Full Name"
+                    placeholder="Tiger Woods"
+                    value={name}
+                    onChangeText={(v) => {
+                      setName(v);
+                      setAuthError(null);
+                    }}
+                    autoComplete="name"
+                  />
 
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>USERNAME</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={styles.input}
-                        placeholder="birdie_king"
-                        placeholderTextColor={colors.placeholder}
-                        value={username}
-                        onChangeText={(v) => {
-                          setUsername(v);
-                          setAuthError(null);
-                        }}
-                        autoCapitalize="none"
-                        autoComplete="username"
-                      />
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Username"
+                    placeholder="birdie_king"
+                    value={username}
+                    onChangeText={(v) => {
+                      setUsername(v);
+                      setAuthError(null);
+                    }}
+                    autoCapitalize="none"
+                    autoComplete="username"
+                  />
 
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>EMAIL</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={styles.input}
-                        placeholder="birdie_king@example.com"
-                        placeholderTextColor={colors.placeholder}
-                        value={signupEmail}
-                        onChangeText={(v) => {
-                          setSignupEmail(v);
-                          setAuthError(null);
-                        }}
-                        autoCapitalize="none"
-                        keyboardType="email-address"
-                        autoComplete="email"
-                      />
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Email"
+                    placeholder="birdie_king@example.com"
+                    value={signupEmail}
+                    onChangeText={(v) => {
+                      setSignupEmail(v);
+                      setAuthError(null);
+                    }}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    autoComplete="email"
+                  />
 
-                  <View style={styles.inputGroup}>
-                    <Text style={styles.inputLabel}>PASSWORD</Text>
-                    <View style={styles.inputWrapper}>
-                      <TextInput
-                        style={[styles.input, styles.inputWithIcon]}
-                        placeholder="••••••••"
-                        placeholderTextColor={colors.placeholder}
-                        value={signupPassword}
-                        onChangeText={(v) => {
-                          setSignupPassword(v);
-                          setAuthError(null);
-                        }}
-                        secureTextEntry={!showPassword}
-                        autoComplete="new-password"
-                      />
-                      <Pressable
-                        style={styles.eyeButton}
-                        onPress={() => setShowPassword(!showPassword)}
-                      >
-                        <Ionicons name={showPassword ? 'eye-off' : 'eye'} size={20} color={colors.placeholder} />
-                      </Pressable>
-                    </View>
-                  </View>
+                  <GlassInput
+                    label="Password"
+                    placeholder="••••••••"
+                    value={signupPassword}
+                    onChangeText={(v) => {
+                      setSignupPassword(v);
+                      setAuthError(null);
+                    }}
+                    secureTextEntry={!showPassword}
+                    autoComplete="new-password"
+                    rightIcon={eyeToggle}
+                  />
                 </>
               )}
 
@@ -336,19 +289,29 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
               {!submitting && <Text style={styles.buttonArrow}>→</Text>}
             </Pressable>
 
+            {/* Social sign-in slot */}
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>or continue with</Text>
+              <View style={styles.dividerLine} />
+            </View>
+            <View style={styles.socialSlot}>
+              {/* B3: SocialSignInButtons mount here */}
+            </View>
+
+            <Text style={styles.legalText}>
+              By continuing, you agree to our Terms and Privacy Policy.
+            </Text>
+
             <View style={styles.bottomSpacer} />
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </AuthBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
   flex: {
     flex: 1,
   },
@@ -356,88 +319,62 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.background,
+    backgroundColor: darkColors.background,
   },
   scrollContent: {
     flexGrow: 1,
+    paddingHorizontal: 24,
   },
-  headerImage: {
-    height: 320,
-    justifyContent: 'flex-end',
-    overflow: 'hidden',
+
+  // Brand
+  brandContainer: {
+    alignItems: 'center',
+    gap: 12,
+    paddingTop: 24,
+    marginBottom: 24,
   },
-  decoCircle1: {
-    position: 'absolute',
-    width: 160,
-    height: 160,
-    borderRadius: 80,
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    top: -30,
-    right: -40,
+  logoContainer: {
+    width: 64,
+    height: 64,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  decoCircle2: {
-    position: 'absolute',
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: 'rgba(255,255,255,0.06)',
-    top: 80,
-    left: -20,
-  },
-  decoCircle3: {
+  logoGlow: {
     position: 'absolute',
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: 'rgba(255,255,255,0.05)',
-    bottom: 60,
-    right: 30,
-  },
-  brandContainer: {
-    alignItems: 'center',
-    paddingBottom: 32,
+    backgroundColor: darkColors.glow,
   },
   logoImage: {
-    width: 64,
-    height: 64,
-    borderRadius: 16,
-    marginBottom: 12,
-    shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 20,
-    elevation: 8,
+    width: 56,
+    height: 56,
+    borderRadius: 14,
   },
   brandName: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '800',
-    color: colors.text,
+    color: darkColors.text,
     letterSpacing: -0.5,
   },
-  brandTagline: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: colors.muted,
-    marginTop: 4,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 24,
-    marginTop: -24,
-  },
+
   headline: {
     fontSize: 28,
     fontWeight: '700',
-    color: colors.text,
+    color: darkColors.text,
     textAlign: 'center',
     marginBottom: 24,
   },
+
+  // Toggle
   toggleContainer: {
     flexDirection: 'row',
-    backgroundColor: colors.border,
+    backgroundColor: darkColors.glassSurface,
+    borderWidth: 1,
+    borderColor: darkColors.glassBorder,
     borderRadius: 9999,
     padding: 4,
-    marginBottom: 32,
+    marginBottom: 28,
   },
   toggleButton: {
     flex: 1,
@@ -448,61 +385,20 @@ const styles = StyleSheet.create({
   },
   toggleButtonActive: {
     backgroundColor: colors.primary,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   toggleText: {
     fontSize: 14,
     fontWeight: '700',
-    color: colors.muted,
+    color: darkColors.textSecondary,
   },
   toggleTextActive: {
-    color: colors.text,
+    color: darkColors.onPrimary,
   },
+
+  // Form
   form: {
     gap: 20,
     marginBottom: 24,
-  },
-  inputGroup: {
-    gap: 8,
-  },
-  inputLabel: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: colors.muted,
-    letterSpacing: 1,
-    marginLeft: 4,
-  },
-  inputWrapper: {
-    position: 'relative',
-  },
-  input: {
-    height: 56,
-    backgroundColor: colors.card,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.text,
-  },
-  inputWithIcon: {
-    paddingRight: 50,
-  },
-  eyeButton: {
-    position: 'absolute',
-    right: 16,
-    top: 0,
-    bottom: 0,
-    justifyContent: 'center',
-  },
-  eyeIcon: {
-    fontSize: 20,
-    opacity: 0.5,
   },
   forgotButton: {
     alignSelf: 'flex-end',
@@ -511,20 +407,22 @@ const styles = StyleSheet.create({
   forgotText: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.text,
+    color: darkColors.textSecondary,
   },
   errorText: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.error,
+    color: darkColors.error,
     textAlign: 'center',
   },
   resetSentText: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.secondary,
+    color: darkColors.success,
     textAlign: 'center',
   },
+
+  // CTA
   primaryButton: {
     height: 56,
     backgroundColor: colors.primary,
@@ -533,11 +431,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 14,
-    elevation: 4,
-    marginBottom: 32,
+    shadowRadius: 20,
+    elevation: 8,
+    marginBottom: 24,
   },
   primaryButtonPressed: {
     transform: [{ scale: 0.98 }],
@@ -549,13 +447,40 @@ const styles = StyleSheet.create({
   primaryButtonText: {
     fontSize: 16,
     fontWeight: '700',
-    color: colors.text,
+    color: darkColors.onPrimary,
     marginRight: 8,
   },
   buttonArrow: {
     fontSize: 20,
     fontWeight: '600',
-    color: colors.text,
+    color: darkColors.onPrimary,
+  },
+
+  // Social slot (B3)
+  dividerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 16,
+  },
+  dividerLine: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: darkColors.divider,
+  },
+  dividerText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: darkColors.textTertiary,
+  },
+  socialSlot: {
+    marginBottom: 16,
+  },
+
+  legalText: {
+    textAlign: 'center',
+    fontSize: 11,
+    color: darkColors.textFaint,
   },
   bottomSpacer: {
     height: 40,

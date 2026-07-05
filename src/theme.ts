@@ -43,6 +43,39 @@ export const colors = {
   navBackground: 'rgba(255, 255, 255, 0.95)',
 };
 
+// Dark premium palette shared by the Welcome → Auth flow.
+export const darkColors = {
+  background: '#0a1f12',
+  gradient: ['#0a1f12', '#0f2e1a', '#153d22', '#1a4a2a'] as const,
+  gradientLocations: [0, 0.3, 0.65, 1] as const,
+
+  // Glass surfaces
+  glassSurface: 'rgba(255,255,255,0.06)',
+  glassSurfaceActive: 'rgba(255,255,255,0.10)',
+  glassBorder: 'rgba(255,255,255,0.08)',
+  glassBorderFocused: 'rgba(19,236,91,0.45)',
+  divider: 'rgba(255,255,255,0.12)',
+
+  // Glow / orb greens
+  glow: 'rgba(19,236,91,0.15)',
+  orbStrong: 'rgba(19,236,91,0.06)',
+  orbMedium: 'rgba(19,236,91,0.05)',
+  orbSoft: 'rgba(19,236,91,0.03)',
+  iconTint: 'rgba(19,236,91,0.12)',
+
+  // Text
+  text: '#ffffff',
+  textSecondary: 'rgba(255,255,255,0.5)',
+  textTertiary: 'rgba(255,255,255,0.4)',
+  textFaint: 'rgba(255,255,255,0.2)',
+  placeholder: 'rgba(255,255,255,0.3)',
+  onPrimary: '#0a1f12',
+
+  // Semantics on dark
+  error: '#ff6b6b',
+  success: '#13ec5b',
+};
+
 export const spacing = {
   xs: 8,
   sm: 12,

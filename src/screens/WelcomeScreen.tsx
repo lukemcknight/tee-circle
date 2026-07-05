@@ -10,9 +10,11 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
+import { colors, darkColors } from '../theme';
 import { RootStackParamList } from '../navigation/types';
+import { AuthBackground } from '../components/AuthBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
 
@@ -64,18 +66,8 @@ export const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={styles.root}>
-      <LinearGradient
-        colors={['#0a1f12', '#0f2e1a', '#153d22', '#1a4a2a']}
-        locations={[0, 0.3, 0.65, 1]}
-        style={StyleSheet.absoluteFillObject}
-      />
-
-      {/* Ambient orbs */}
-      <View pointerEvents="none" style={styles.orbTopRight} />
-      <View pointerEvents="none" style={styles.orbBottomLeft} />
-      <View pointerEvents="none" style={styles.orbCenter} />
-
+    <AuthBackground>
+      <StatusBar style="light" />
       <SafeAreaView style={styles.safe}>
         {/* Logo + Title */}
         <Animated.View
@@ -117,7 +109,7 @@ export const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
               ]}
             >
               <View style={styles.featureIconWrap}>
-                <Ionicons name={item.icon} size={22} color="#13ec5b" />
+                <Ionicons name={item.icon} size={22} color={colors.primary} />
               </View>
               <View style={styles.featureTextWrap}>
                 <Text style={styles.featureTitle}>{item.title}</Text>
@@ -139,7 +131,7 @@ export const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
             style={({ pressed }) => [styles.primaryButton, pressed && styles.primaryPressed]}
           >
             <Text style={styles.primaryButtonText}>Join the Circle</Text>
-            <Ionicons name="arrow-forward" size={18} color="#0a1f12" />
+            <Ionicons name="arrow-forward" size={18} color={darkColors.onPrimary} />
           </Pressable>
 
           <Pressable
@@ -154,47 +146,14 @@ export const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
           </Text>
         </Animated.View>
       </SafeAreaView>
-    </View>
+    </AuthBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: '#0a1f12',
-  },
   safe: {
     flex: 1,
     justifyContent: 'center',
-  },
-
-  // Ambient light orbs
-  orbTopRight: {
-    position: 'absolute',
-    top: -80,
-    right: -60,
-    width: 280,
-    height: 280,
-    borderRadius: 140,
-    backgroundColor: 'rgba(19,236,91,0.06)',
-  },
-  orbBottomLeft: {
-    position: 'absolute',
-    bottom: -40,
-    left: -80,
-    width: 240,
-    height: 240,
-    borderRadius: 120,
-    backgroundColor: 'rgba(19,236,91,0.05)',
-  },
-  orbCenter: {
-    position: 'absolute',
-    top: '35%',
-    left: '20%',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: 'rgba(19,236,91,0.03)',
   },
 
   // Hero
@@ -213,7 +172,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: 'rgba(19,236,91,0.15)',
+    backgroundColor: darkColors.glow,
   },
   logoImage: {
     width: 88,
@@ -230,14 +189,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 42,
     fontWeight: '900',
-    color: '#ffffff',
+    color: darkColors.text,
     letterSpacing: -1.2,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: 'rgba(255,255,255,0.5)',
+    color: darkColors.textSecondary,
     letterSpacing: 0.5,
     textAlign: 'center',
   },
@@ -252,9 +211,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 14,
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    backgroundColor: darkColors.glassSurface,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
+    borderColor: darkColors.glassBorder,
     borderRadius: 16,
     paddingVertical: 14,
     paddingHorizontal: 16,
@@ -263,7 +222,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 12,
-    backgroundColor: 'rgba(19,236,91,0.12)',
+    backgroundColor: darkColors.iconTint,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -274,12 +233,12 @@ const styles = StyleSheet.create({
   featureTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#ffffff',
+    color: darkColors.text,
   },
   featureDesc: {
     fontSize: 13,
     fontWeight: '500',
-    color: 'rgba(255,255,255,0.4)',
+    color: darkColors.textTertiary,
   },
 
   // Actions
@@ -290,12 +249,12 @@ const styles = StyleSheet.create({
   primaryButton: {
     height: 56,
     borderRadius: 16,
-    backgroundColor: '#13ec5b',
+    backgroundColor: colors.primary,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    shadowColor: '#13ec5b',
+    shadowColor: colors.primary,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
     shadowRadius: 20,
@@ -303,12 +262,12 @@ const styles = StyleSheet.create({
   },
   primaryPressed: {
     transform: [{ scale: 0.98 }],
-    backgroundColor: '#0fd650',
+    backgroundColor: colors.primaryDark,
   },
   primaryButtonText: {
     fontSize: 17,
     fontWeight: '800',
-    color: '#0a1f12',
+    color: darkColors.onPrimary,
     letterSpacing: 0.2,
   },
   loginLink: {
@@ -322,12 +281,12 @@ const styles = StyleSheet.create({
   loginLinkText: {
     fontSize: 14,
     fontWeight: '600',
-    color: 'rgba(255,255,255,0.45)',
+    color: darkColors.textSecondary,
   },
   legalText: {
     textAlign: 'center',
     fontSize: 11,
-    color: 'rgba(255,255,255,0.2)',
+    color: darkColors.textFaint,
     marginTop: 4,
   },
 });
