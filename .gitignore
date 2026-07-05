@@ -30,8 +30,12 @@ yarn-error.*
 .DS_Store
 *.pem
 
+# build artifacts
+*.ipa
+
 # local env files
 .env*.local
+.env
 
 # typescript
 *.tsbuildinfo
@@ -39,3 +43,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+AuthKey.p8
+
