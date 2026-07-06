@@ -22,11 +22,12 @@ import { isValidEmail } from '../utils/validation';
 import { getUsernameError } from '../utils/username';
 import { AuthBackground } from '../components/AuthBackground';
 import { GlassInput } from '../components/GlassInput';
+import { SocialSignInButtons } from '../components/SocialSignInButtons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
 
 export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
-  const { signIn, signUp, initializing } = useAuth();
+  const { signIn, signUp, signInWithApple, signInWithGoogle, initializing } = useAuth();
   const [authMode, setAuthMode] = useState<'login' | 'signup'>(route.params?.mode ?? 'login');
   const [identifier, setIdentifier] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -89,6 +90,27 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
     setSubmitting(false);
     if (!success) {
       setAuthError('Could not create account. Please try again.');
+    }
+  };
+
+  const handleApple = async () => {
+    setSubmitting(true);
+    setAuthError(null);
+    const result = await signInWithApple();
+    setSubmitting(false);
+    if (result === 'error') {
+      setAuthError('Could not sign in with Apple. Please try again.');
+    }
+    // 'cancelled' is silent; 'success' navigates via the auth-state listener
+  };
+
+  const handleGoogle = async () => {
+    setSubmitting(true);
+    setAuthError(null);
+    const result = await signInWithGoogle();
+    setSubmitting(false);
+    if (result === 'error') {
+      setAuthError('Could not sign in with Google. Please try again.');
     }
   };
 
@@ -296,7 +318,11 @@ export const AuthScreen: React.FC<Props> = ({ navigation, route }) => {
               <View style={styles.dividerLine} />
             </View>
             <View style={styles.socialSlot}>
-              {/* B3: SocialSignInButtons mount here */}
+              <SocialSignInButtons
+                onApple={handleApple}
+                onGoogle={handleGoogle}
+                disabled={submitting}
+              />
             </View>
 
             <Text style={styles.legalText}>

@@ -5,6 +5,11 @@ import { posthog } from '../lib/analytics';
 import { Profile } from '../types';
 import { normalizeUsername } from '../utils/username';
 import { withRetry } from '../utils/retry';
+import {
+  signInWithAppleNative,
+  signInWithGoogleNative,
+  SocialSignInResult,
+} from '../lib/socialAuth';
 
 const withTimeout = <T,>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> => {
   return Promise.race([
@@ -23,6 +28,8 @@ type AuthContextValue = {
   initializing: boolean;
   refreshProfile: () => Promise<void>;
   signIn: (identifier: string, password?: string) => Promise<boolean>;
+  signInWithApple: () => Promise<SocialSignInResult>;
+  signInWithGoogle: () => Promise<SocialSignInResult>;
   signUp: (params: { name: string; username: string; email: string; password: string }) => Promise<boolean>;
   signOut: () => Promise<void>;
   deleteProfile: () => Promise<boolean>;
@@ -205,6 +212,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return !error;
   }, []);
 
+  const signInWithApple = useCallback(async () => {
+    const result = await signInWithAppleNative();
+    if (result === 'success') posthog.capture('sign_in', { method: 'apple' });
+    return result;
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    const result = await signInWithGoogleNative();
+    if (result === 'success') posthog.capture('sign_in', { method: 'google' });
+    return result;
+  }, []);
+
   const signUp = useCallback(async (params: { name: string; username: string; email: string; password: string }) => {
     const { name, username, email, password } = params;
     const normalizedUsername = normalizeUsername(username);
@@ -259,6 +278,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     session,
     initializing,
     signIn,
+    signInWithApple,
+    signInWithGoogle,
     signUp,
     signOut,
     userEmail,

@@ -16,6 +16,7 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.teecircle.app",
       "buildNumber": "9",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "NSUserNotificationUsageDescription": "Tee Circle sends notifications to let you know about friend requests and round updates.",
         "UIBackgroundModes": [
@@ -54,7 +55,14 @@
         }
       ],
       "expo-font",
-      "expo-localization"
+      "expo-localization",
+      "expo-apple-authentication",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.PLACEHOLDER"
+        }
+      ]
     ],
     "extra": {
       "eas": {
