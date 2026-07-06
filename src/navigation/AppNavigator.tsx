@@ -20,6 +20,9 @@ import { UsernameScreen } from '../screens/UsernameScreen';
 import { useAuth } from '../context/AuthContext';
 import { WelcomeScreen } from '../screens/WelcomeScreen';
 import { RoundScoreScreen } from '../screens/RoundScoreScreen';
+import { VoiceSearchScreen } from '../screens/VoiceSearchScreen';
+import { TeeTimeReviewScreen } from '../screens/TeeTimeReviewScreen';
+import { TeeTimeResultsScreen } from '../screens/TeeTimeResultsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -56,6 +59,9 @@ export const AppNavigator = () => {
           <Stack.Group>
             <Stack.Screen name="Home" component={HomeScreen} options={{ animation: 'none' }} />
             <Stack.Screen name="CreateRound" component={CreateRoundScreen} />
+            <Stack.Screen name="VoiceSearch" component={VoiceSearchScreen} />
+            <Stack.Screen name="TeeTimeReview" component={TeeTimeReviewScreen} />
+            <Stack.Screen name="TeeTimeResults" component={TeeTimeResultsScreen} />
             <Stack.Screen name="RoundDetail" component={RoundDetailScreen} />
             <Stack.Screen name="RoundScore" component={RoundScoreScreen} />
             <Stack.Screen name="InviteFriends" component={InviteFriendsScreen} />

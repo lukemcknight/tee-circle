@@ -173,6 +173,21 @@ export const HomeScreen: React.FC<Props> = ({ navigation }) => {
         </ScrollView>
 
         <Pressable
+          style={[styles.fab, styles.micFab, { bottom: fabBottom + 68 }]}
+          onPress={() => {
+            if (!user) {
+              navigation.replace('Auth');
+              return;
+            }
+            navigation.navigate('VoiceSearch');
+          }}
+          accessibilityRole="button"
+          accessibilityLabel="Search tee times by voice"
+        >
+          <Ionicons name="mic" size={26} color={colors.card} />
+        </Pressable>
+
+        <Pressable
           style={[styles.fab, { bottom: fabBottom }]}
           onPress={() => {
             if (!user) {
@@ -319,6 +334,10 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 10 },
     elevation: 4,
+  },
+  micFab: {
+    backgroundColor: colors.secondary,
+    shadowColor: colors.secondary,
   },
   fabIcon: {
     fontSize: 28,

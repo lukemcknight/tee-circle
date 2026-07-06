@@ -19,6 +19,8 @@
       "usesAppleSignIn": true,
       "infoPlist": {
         "NSUserNotificationUsageDescription": "Tee Circle sends notifications to let you know about friend requests and round updates.",
+        "NSSpeechRecognitionUsageDescription": "Tee Circle uses speech recognition so you can search for tee times by voice.",
+        "NSMicrophoneUsageDescription": "Tee Circle uses the microphone so you can say the tee time you're looking for.",
         "UIBackgroundModes": [
           "remote-notification"
         ],
@@ -61,6 +63,13 @@
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.PLACEHOLDER"
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Tee Circle uses the microphone so you can say the tee time you're looking for.",
+          "speechRecognitionPermission": "Tee Circle uses speech recognition so you can search for tee times by voice."
         }
       ]
     ],
