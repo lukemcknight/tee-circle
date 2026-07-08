@@ -28,7 +28,6 @@
       "env": {
         "EXPO_PUBLIC_SUPABASE_URL": "https://zgrbwhnfuxgvkwtgrncu.supabase.co",
         "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_C0yy6gJRYDWpDNC9nXVelQ_YP8_mDYW",
-        "EXPO_PUBLIC_GOOGLE_PLACES_API_KEY": "AIzaSyBFt-TbJk6MClmzrBZM1qoDCGcUrBQKKhY",
         "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "PLACEHOLDER.apps.googleusercontent.com",
         "EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID": "PLACEHOLDER.apps.googleusercontent.com"
       }
