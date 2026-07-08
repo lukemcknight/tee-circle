@@ -1,68 +1,24 @@
 // parse-intent: turn a voice transcript into a structured tee-time search intent.
 //
-// Uses Claude with structured outputs so the response always matches the
-// ParsedIntent schema. ANTHROPIC_API_KEY lives ONLY in Supabase function
-// secrets (supabase secrets set ANTHROPIC_API_KEY=...), never in code.
+// Uses Gemini (gemini-2.5-flash-lite) with a JSON responseSchema, then
+// re-validates the output in validateIntent since Gemini's schema
+// enforcement is looser than a strict JSON-Schema guarantee.
+// GEMINI_API_KEY lives ONLY in Supabase function secrets
+// (supabase secrets set GEMINI_API_KEY=...), never in code.
 
-import Anthropic from "@anthropic-ai/sdk";
 import { AuthError, requireUser } from "../_shared/auth.ts";
 import { handleOptions, jsonResponse } from "../_shared/cors.ts";
+import {
+  buildGeminiRequest,
+  extractResponseText,
+  type ParsedIntent,
+  validateIntent,
+} from "./gemini.ts";
 
 const EASTERN = "America/New_York";
 
-// All fields required + additionalProperties:false, per structured-outputs rules.
-const INTENT_SCHEMA = {
-  type: "object",
-  additionalProperties: false,
-  required: [
-    "courseQuery",
-    "date",
-    "timeStart",
-    "timeEnd",
-    "players",
-    "holes",
-    "needsClarification",
-    "confidence",
-  ],
-  properties: {
-    courseQuery: {
-      type: "string",
-      description:
-        'The course the user named, as they said it. Use "local" when they want any nearby course or did not name one.',
-    },
-    date: {
-      type: "string",
-      description:
-        "The requested date resolved to an absolute ISO date, YYYY-MM-DD.",
-    },
-    timeStart: {
-      type: "string",
-      description: "Earliest acceptable tee time, HH:MM 24-hour.",
-    },
-    timeEnd: {
-      type: "string",
-      description: "Latest acceptable tee time, HH:MM 24-hour.",
-    },
-    players: {
-      type: "integer",
-      description: "Number of players. Default 1 if unstated.",
-    },
-    holes: {
-      type: ["integer", "null"],
-      enum: [9, 18, null],
-      description: "9 or 18 when the user specified, otherwise null.",
-    },
-    needsClarification: {
-      type: "boolean",
-      description:
-        "True when the request is too ambiguous to search (e.g. no date can be inferred).",
-    },
-    confidence: {
-      type: "number",
-      description: "0-1 confidence that this intent matches what was said.",
-    },
-  },
-} as const;
+const GEMINI_URL =
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent";
 
 function todayInEastern(): string {
   return new Intl.DateTimeFormat("en-CA", {
@@ -105,27 +61,45 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: "transcript (string) is required" }, 400);
     }
 
-    const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+    const apiKey = Deno.env.get("GEMINI_API_KEY");
     if (!apiKey) {
-      return jsonResponse({ error: "ANTHROPIC_API_KEY is not configured" }, 500);
+      return jsonResponse({ error: "GEMINI_API_KEY is not configured" }, 500);
     }
-    const client = new Anthropic({ apiKey });
 
-    // Plain call — no thinking/effort params (claude-haiku-4-5 rejects them).
-    const msg = await client.messages.parse({
-      model: "claude-haiku-4-5",
-      max_tokens: 512,
-      system: buildSystemPrompt(),
-      messages: [{ role: "user", content: transcript }],
-      output_config: {
-        format: { type: "json_schema", schema: INTENT_SCHEMA },
+    const geminiRes = await fetch(GEMINI_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey,
       },
+      body: JSON.stringify(buildGeminiRequest(buildSystemPrompt(), transcript)),
     });
 
-    if (msg.parsed_output == null) {
+    if (geminiRes.status === 429) {
+      return jsonResponse(
+        { error: "rate limited, try again shortly" },
+        429,
+      );
+    }
+    if (!geminiRes.ok) {
+      console.error("gemini error:", geminiRes.status, await geminiRes.text());
+      return jsonResponse({ error: "intent service unavailable" }, 502);
+    }
+
+    const geminiBody = await geminiRes.json().catch(() => null);
+    const text = extractResponseText(geminiBody);
+    let intent: ParsedIntent | null = null;
+    if (text !== null) {
+      try {
+        intent = validateIntent(JSON.parse(text));
+      } catch {
+        intent = null;
+      }
+    }
+    if (intent === null) {
       return jsonResponse({ error: "model returned no parsable intent" }, 502);
     }
-    return jsonResponse(msg.parsed_output);
+    return jsonResponse(intent);
   } catch (err) {
     if (err instanceof AuthError) {
       return jsonResponse({ error: err.message }, 401);
