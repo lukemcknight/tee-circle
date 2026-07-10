@@ -71,6 +71,17 @@
           "microphonePermission": "Tee Circle uses the microphone so you can say the tee time you're looking for.",
           "speechRecognitionPermission": "Tee Circle uses speech recognition so you can search for tee times by voice."
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "extraPods": [
+              { "name": "GoogleUtilities", "modularHeaders": true },
+              { "name": "RecaptchaInterop", "modularHeaders": true }
+            ]
+          }
+        }
       ]
     ],
     "extra": {
