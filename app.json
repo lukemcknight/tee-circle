@@ -2,7 +2,7 @@
   "expo": {
     "name": "Tee Circle",
     "slug": "tee-circle",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -76,9 +76,16 @@
         "expo-build-properties",
         {
           "ios": {
+            "deploymentTarget": "16.4",
             "extraPods": [
-              { "name": "GoogleUtilities", "modular_headers": true },
-              { "name": "RecaptchaInterop", "modular_headers": true }
+              {
+                "name": "GoogleUtilities",
+                "modular_headers": true
+              },
+              {
+                "name": "RecaptchaInterop",
+                "modular_headers": true
+              }
             ]
           }
         }
