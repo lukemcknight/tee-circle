@@ -21,6 +21,8 @@
         "NSUserNotificationUsageDescription": "Tee Circle sends notifications to let you know about friend requests and round updates.",
         "NSSpeechRecognitionUsageDescription": "Tee Circle uses speech recognition so you can search for tee times by voice.",
         "NSMicrophoneUsageDescription": "Tee Circle uses the microphone so you can say the tee time you're looking for.",
+        "NSPhotoLibraryUsageDescription": "Tee Circle lets you choose a photo from your library for your profile picture.",
+        "NSCameraUsageDescription": "Tee Circle lets you take a photo for your profile picture.",
         "UIBackgroundModes": [
           "remote-notification"
         ],
