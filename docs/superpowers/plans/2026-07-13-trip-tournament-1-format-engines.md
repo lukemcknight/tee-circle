@@ -294,13 +294,9 @@ export function stablefordPointsForHole(
   par: number,
 ): number {
   if (netStrokes == null) return 0;
-  const diff = netStrokes - par;
-  if (diff <= -3) return 5;
-  if (diff === -2) return 4;
-  if (diff === -1) return 3;
-  if (diff === 0) return 2;
-  if (diff === 1) return 1;
-  return 0;
+  // Standard Stableford, unbounded upward: par 2, birdie 3, eagle 4,
+  // albatross 5, net double-eagle (par-4) 6, ...; double-bogey-or-worse 0.
+  return Math.max(0, 2 - (netStrokes - par));
 }
 
 export function computeStableford(
@@ -533,11 +529,11 @@ describe('computeTripStandings', () => {
 
   it('sums skins won across rounds', () => {
     const rounds = [
-      round({ a: [3, 5], b: [4, 4] }), // a wins hole1 → a:1
-      round({ a: [5, 5], b: [4, 4] }), // b wins both → b:2
+      round({ a: [3, 5], b: [4, 4] }), // a wins hole1, b wins hole2 → a:1, b:1
+      round({ a: [5, 5], b: [4, 4] }), // b wins both → a:0, b:2
     ];
     expect(computeTripStandings(rounds, 'skins', 'gross')).toEqual([
-      { playerId: 'b', value: 2 },
+      { playerId: 'b', value: 3 },
       { playerId: 'a', value: 1 },
     ]);
   });
