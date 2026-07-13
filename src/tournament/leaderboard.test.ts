@@ -21,6 +21,18 @@ describe('computeTripStandings', () => {
     ]);
   });
 
+  it('sums totals for a player absent from later rounds', () => {
+    const rounds = [
+      round({ a: [4, 4], b: [3, 4] }), // a: 2+2=4, b: 3+2=5
+      round({ a: [3, 3] }), // b did not play this round; a: 3+3=6
+    ];
+    // totals: a=4+6=10, b=5 (round 1 only)
+    expect(computeTripStandings(rounds, 'stableford', 'net')).toEqual([
+      { playerId: 'a', value: 10 },
+      { playerId: 'b', value: 5 },
+    ]);
+  });
+
   it('sums skins won across rounds', () => {
     const rounds = [
       round({ a: [3, 5], b: [4, 4] }), // a wins hole1, b wins hole2 → a:1, b:1

@@ -6,13 +6,7 @@ export function stablefordPointsForHole(
   par: number,
 ): number {
   if (netStrokes == null) return 0;
-  const diff = netStrokes - par;
-  if (diff <= -3) return 5;
-  if (diff === -2) return 4;
-  if (diff === -1) return 3;
-  if (diff === 0) return 2;
-  if (diff === 1) return 1;
-  return 0;
+  return Math.max(0, 2 - (netStrokes - par));
 }
 
 export function computeStableford(

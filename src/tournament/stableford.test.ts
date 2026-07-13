@@ -11,6 +11,9 @@ describe('stablefordPointsForHole', () => {
     expect(stablefordPointsForHole(6, 4)).toBe(0); // double
     expect(stablefordPointsForHole(9, 4)).toBe(0); // worse
   });
+  it('scores unbounded upward for deep net scores below par', () => {
+    expect(stablefordPointsForHole(1, 5)).toBe(6); // net 1 on par 5, diff -4
+  });
   it('scores unplayed holes as zero', () => {
     expect(stablefordPointsForHole(null, 4)).toBe(0);
   });
