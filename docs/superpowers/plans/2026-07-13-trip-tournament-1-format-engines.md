@@ -81,7 +81,7 @@ Expected: PASS — 1 test.
 
 ```bash
 rm src/tournament/smoke.test.ts
-git add package.json babel.config.js
+git add package.json package-lock.json babel.config.js
 git commit -m "Add jest-expo test harness
 
 Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
