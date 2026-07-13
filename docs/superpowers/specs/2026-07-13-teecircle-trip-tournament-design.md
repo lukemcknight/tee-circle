@@ -91,9 +91,12 @@ Both formats compute on **net** score by default (uses existing handicap data; n
 - Format engines pass a suite of known-scorecard unit tests including tie/carryover edge cases.
 - The free→paid boundary is visible (free users can see a trip exists and hit the wall at activation).
 
-## 10. Open questions
+## 10. Resolved decisions
 
-- Exact per-trip price point (test post-launch).
-- Trip roster model: explicit `trip_players` join vs. derived from participating scorecards.
-- Whether the free tier includes a basic single-format trip preview or only single-round scoring (affects how much value is visible before the wall).
-- RevenueCat vs. raw StoreKit final call (leaning RevenueCat).
+Open questions resolved by the owner's "make the calls, I'll feel it when built" delegation (2026-07-13). All are revisitable after hands-on testing.
+
+- **Price:** placeholder $29.99 per trip — IAP product config, swappable anytime; real number tested post-launch.
+- **Trip roster:** explicit `trip_players` table (first-class roster, set before scores exist; teams fast-follow attaches here).
+- **Free/paid boundary:** captain builds the full trip (crew, rounds, leaderboard shell) for free; the paywall is the **"Start Tournament"** action that activates live scoring + skins/Stableford + the live board. Value fully visible before the wall.
+- **Entitlement model:** **trip-scoped**, not per-user. The captain's verified purchase flips `trips.is_pro = true` via a server-side (Supabase edge function) receipt verification; all players in that trip then read Pro. This is what lets one purchase unlock ~12 devices.
+- **Purchases:** RevenueCat (over raw StoreKit) for receipt validation; entitlement still stored trip-scoped in Supabase per above.
