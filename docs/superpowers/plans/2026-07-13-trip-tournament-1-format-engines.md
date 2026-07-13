@@ -371,8 +371,8 @@ const build = (perPlayer: Record<string, (number | null)[]>): PlayerRound[] =>
 
 describe('computeSkins', () => {
   it('awards a hole to the strict low scorer', () => {
-    const r = computeSkins(build({ a: [3, 5], b: [4, 4] }), 'gross');
-    // hole1: a low → a wins 1; hole2: tie → carries
+    const r = computeSkins(build({ a: [3, 4], b: [4, 4] }), 'gross');
+    // hole1: a low → a wins 1; hole2: tie (4=4) → carries
     expect(r.standings).toEqual([
       { playerId: 'a', value: 1 },
       { playerId: 'b', value: 0 },
