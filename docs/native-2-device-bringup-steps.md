@@ -28,22 +28,22 @@ In order — stop at the first step that fixes it:
       ("Make the tee time. The group will follow.").
 
 ## 3. Supabase dashboard (config the app needs to sign in)
-- [ ] Email code fix — Dashboard → Authentication → Email Templates → Magic Link:
+- [x] Email code fix — Dashboard → Authentication → Email Templates → Magic Link:
       the body must include the token, e.g.:
         <h2>Your TeeCircle sign-in code</h2>
         <p>Enter this code in the app: <strong>{{ .Token }}</strong></p>
         <p>Or tap: {{ .ConfirmationURL }}</p>
       (Today it sends only the link — that's why no code arrived.)
-- [ ] SMTP decision: built-in Supabase mailer is fine for bring-up (it's
+- [x] SMTP decision: built-in Supabase mailer is fine for bring-up (it's
       rate-limited to a few emails/hour — space out your tests). Real SMTP
       (Resend/Postmark) is a Milestone 3 release gate, not needed now.
-- [ ] Apple provider — Authentication → Providers → Apple → Enable; add
+- [x] Apple provider — Authentication → Providers → Apple → Enable; add
       `com.teecircle.app` to Authorized Client IDs.
-- [ ] Google provider — Authentication → Providers → Google → Enable;
+- [x] Google provider — Authentication → Providers → Google → Enable;
       Client ID = the value of TEE_GOOGLE_SERVER_CLIENT_ID in
       native/Config/Secrets.xcconfig; add the TEE_GOOGLE_IOS_CLIENT_ID value
       to Authorized Client IDs (comma-separated).
-- [ ] Kill switch (required for profile setup / username claim) — SQL Editor:
+- [x] Kill switch (required for profile setup / username claim) — SQL Editor:
         insert into tee_internal.runtime_flags (key, enabled)
         values ('native_writes_enabled', true)
         on conflict (key) do update set enabled = true;
