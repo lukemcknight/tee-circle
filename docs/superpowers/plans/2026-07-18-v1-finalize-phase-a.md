@@ -78,25 +78,33 @@ Expected: `0`, then a successful push (`trip-tournament-engines -> trip-tourname
 
 ---
 
-### Task 2: Create `finalize-v1` off `main` with the spec
+### Task 2: Create `finalize-v1` off `main` with the spec and plan
 
 **Files:**
 - Create: branch `finalize-v1` (from `main`)
-- Cherry-pick: commit `1d4ab01` (the design spec) onto it
+- Copy from `trip-tournament-engines`: `docs/superpowers/specs/2026-07-18-v1-finalize-release-design.md`, `docs/superpowers/plans/2026-07-18-v1-finalize-phase-a.md`
 
 **Interfaces:**
-- Consumes: clean tree from Task 1; spec commit `1d4ab01` on `trip-tournament-engines`.
-- Produces: branch `finalize-v1` containing `docs/superpowers/specs/2026-07-18-v1-finalize-release-design.md`, pushed with upstream set. All later tasks run on this branch.
+- Consumes: clean tree from Task 1; spec + plan docs committed on `trip-tournament-engines`.
+- Produces: branch `finalize-v1` containing the spec and this plan, pushed with upstream set. All later tasks run on this branch.
 
 - [ ] **Step 1: Branch off up-to-date main**
 
 Run: `git checkout main && git pull origin main && git checkout -b finalize-v1`
 Expected: `Switched to a new branch 'finalize-v1'`.
 
-- [ ] **Step 2: Cherry-pick the spec commit**
+- [ ] **Step 2: Copy the spec and plan from the tournament branch**
 
-Run: `git cherry-pick 1d4ab01`
-Expected: clean pick (the spec is a new file; no conflicts). `git log --oneline -1` shows `Add design spec: v1 finalize & public App Store release`.
+Run:
+```bash
+git checkout trip-tournament-engines -- \
+  docs/superpowers/specs/2026-07-18-v1-finalize-release-design.md \
+  docs/superpowers/plans/2026-07-18-v1-finalize-phase-a.md
+git commit -m "Add finalize-v1 spec and Phase A plan
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+```
+Expected: both files staged and committed; `git log --oneline -1` shows the new commit.
 
 - [ ] **Step 3: Push with upstream**
 
