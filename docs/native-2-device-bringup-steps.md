@@ -47,8 +47,12 @@ In order — stop at the first step that fixes it:
         insert into tee_internal.runtime_flags (key, enabled)
         values ('native_writes_enabled', true)
         on conflict (key) do update set enabled = true;
-      Leave sandbox_purchases_enabled, public previews, and
-      live_activity_pushes_enabled ALONE (they stay off for the lean debut).
+      Leave every OTHER runtime_flags row ALONE — the seeded ones are
+      public_previews_enabled, live_activity_pushes_enabled, and
+      purchases_required (they keep their current values for the lean debut).
+      Note: the release runbook mentions a "sandbox_purchases_enabled" flag,
+      but no such row exists in the seed data — ignore that name until
+      purchases work resumes.
 
 ## 4. The three sign-ins (exit criteria — do all three on the iPhone)
 - [ ] Email code: enter your email → code arrives (6 digits, in the email) →
