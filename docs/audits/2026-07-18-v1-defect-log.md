@@ -30,6 +30,14 @@ App Review rejection risk; P1 = works but bad experience; P2 = cosmetic.
 | CODE-21 | P2 | Create Round (course search) | src/lib/placesApi.ts:105-108 | `getPlaceDetails(placeId, sessionToken)` takes no `AbortSignal`, unlike `autocompleteGolfCourses` (45-49) which does — callers have no way to cancel an in-flight place-details fetch (e.g. user taps a different suggestion before the first lookup resolves), risking a late response overwriting a newer selection. | Accept an optional `signal?: AbortSignal` parameter and pass it to `fetch`, matching `autocompleteGolfCourses`, so callers can cancel stale requests. |
 | CODE-22 | P1 | Auth (Apple sign-in) | src/lib/socialAuth.ts:46-51 | After a successful Apple sign-in, `await supabase.auth.updateUser({ data: { full_name: fullName } })` (line 50) is unchecked for errors. The surrounding comment notes Apple only supplies `fullName` on the very first authorization ever — so if this specific call fails (network blip on first launch), the user's display name is permanently unrecoverable; `ensureProfile()` in `AuthContext.tsx` will never see it again on any later sign-in. | Check this call's error and retry (or queue a retry) before treating Apple sign-in as complete, since this is a one-time, non-recoverable opportunity to capture the name. |
 
+## Triage notes (independent review, 2026-07-18)
+
+An independent review verified a 9-finding sample (incl. the P0) at exact file:line — zero wrong, zero hard miscalibrations. Two borderline severity calls to weigh during Phase B sequencing:
+
+- **CODE-19 — treat as P0-adjacent.** Silently overwriting the stored handicap index on a transient fetch error is data corruption ("data loss" is a P0 trigger). Sequence it with the P0 fixes even if the label stays P1.
+- **CODE-18 — borderline P0.** A profile-load failure strands a brand-new user with no username and no gate to recover — golden-path onboarding. Sequence early.
+- Pattern note: `GroupDetailsScreen`/`useGroups` share the error-rendered-as-"not found"/empty pattern seen in CODE-6/CODE-7; fix the pattern consistently in Phase B.
+
 ## Clean files (static audit)
 
 Read in full against the 10-point checklist; no verifiable, concrete defect found:
