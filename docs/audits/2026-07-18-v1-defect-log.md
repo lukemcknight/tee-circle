@@ -48,3 +48,11 @@ Read in full against the 10-point checklist; no verifiable, concrete defect foun
 - `src/screens/WelcomeScreen.tsx`
 - `src/hooks/useRoundResponses.ts`
 - `src/navigation/AppNavigator.tsx`
+
+## URL verification (Task 5)
+
+| URL | HTTP status | Date |
+|-----|-------------|------|
+| https://teecircle.app/privacy | 200 | 2026-07-18 |
+| https://teecircle.app/terms | 200 | 2026-07-18 |
+| https://teecircle.app/.well-known/apple-app-site-association | 200 | 2026-07-18 |
