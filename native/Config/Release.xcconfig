@@ -1,0 +1,6 @@
+#include "Base.xcconfig"
+
+APS_ENVIRONMENT = production
+TEE_USE_MOCK_DATA = NO
+SWIFT_COMPILATION_MODE = wholemodule
+

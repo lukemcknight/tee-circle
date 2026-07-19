@@ -1,0 +1,14 @@
+[mcp_servers.supabase]
+url = "https://mcp.supabase.com/mcp?project_ref=zgrbwhnfuxgvkwtgrncu&features=database%2Cdebugging%2Cdevelopment%2Cfunctions"
+auth = "oauth"
+default_tools_approval_mode = "writes"
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.supabase_readonly]
+url = "https://mcp.supabase.com/mcp?project_ref=zgrbwhnfuxgvkwtgrncu&read_only=true&features=database%2Cdebugging%2Cdevelopment"
+auth = "oauth"
+default_tools_approval_mode = "writes"
+enabled_tools = ["get_project_url", "list_migrations", "list_tables", "execute_sql", "get_advisors"]
+startup_timeout_sec = 30
+tool_timeout_sec = 120

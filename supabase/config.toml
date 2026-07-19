@@ -1,0 +1,52 @@
+project_id = "tee-circle"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[db.seed]
+enabled = false
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:3000"
+additional_redirect_urls = ["teecircle://**", "http://127.0.0.1:3000/**"]
+jwt_expiry = 3600
+enable_signup = true
+
+# These endpoints authenticate opaque invite/session tokens, an external
+# webhook credential, or a dedicated worker secret themselves; Supabase user
+# JWT verification is intentionally off.
+[functions.preview-trip-v1]
+verify_jwt = false
+
+[functions.messages-bootstrap-v1]
+verify_jwt = false
+
+[functions.score-trip-hole-v1]
+verify_jwt = false
+
+# Main-app scoring uses the caller JWT, RLS-aware command RPC, synchronous
+# canonical snapshot recomputation, and ActivityKit dispatch.
+[functions.record-score-v1]
+verify_jwt = true
+
+[functions.claim-trip-purchase-v1]
+verify_jwt = true
+
+[functions.recompute-trip-snapshot-v1]
+verify_jwt = false
+
+[functions.revenuecat-webhook-v1]
+verify_jwt = false
+
+[functions.dispatch-live-activity-v1]
+verify_jwt = false

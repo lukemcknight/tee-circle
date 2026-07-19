@@ -1,0 +1,5 @@
+#include "Base.xcconfig"
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) DEBUG
+APS_ENVIRONMENT = development
+TEE_USE_MOCK_DATA = NO

@@ -1,0 +1,264 @@
+name: TeeCircle
+
+options:
+  bundleIdPrefix: com.teecircle.app
+  deploymentTarget:
+    iOS: "16.4"
+  xcodeVersion: "26.0"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+configs:
+  Debug: debug
+  Release: release
+
+configFiles:
+  Debug: Config/Debug.xcconfig
+  Release: Config/Release.xcconfig
+
+packages:
+  TeeCircleKit:
+    path: Packages/TeeCircleKit
+  Supabase:
+    url: https://github.com/supabase/supabase-swift.git
+    from: 2.0.0
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS.git
+    from: 9.0.0
+  PostHog:
+    url: https://github.com/PostHog/posthog-ios.git
+    from: 3.0.0
+  RevenueCat:
+    url: https://github.com/RevenueCat/purchases-ios.git
+    from: 5.43.0
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: 9974PM5L6M
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.4"
+    TARGETED_DEVICE_FAMILY: "1"
+    SUPPORTS_MACCATALYST: false
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: true
+    LOCALIZATION_PREFERS_STRING_CATALOGS: true
+
+targets:
+  TeeCircle:
+    type: application
+    platform: iOS
+    sources:
+      - path: TeeCircle
+    resources:
+      - path: TeeCircle/Resources/Assets.xcassets
+      - path: TeeCircle/Resources/PrivacyInfo.xcprivacy
+    info:
+      path: TeeCircle/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: TeeCircle
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.teecircle.app
+            CFBundleURLSchemes:
+              - teecircle
+              - $(TEE_GOOGLE_REVERSED_CLIENT_ID)
+        GIDClientID: $(TEE_GOOGLE_IOS_CLIENT_ID)
+        GIDServerClientID: $(TEE_GOOGLE_SERVER_CLIENT_ID)
+        ITSAppUsesNonExemptEncryption: false
+        LSRequiresIPhoneOS: true
+        NSSupportsLiveActivities: true
+        NSSupportsLiveActivitiesFrequentUpdates: true
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        TEESupabaseHost: $(TEE_SUPABASE_HOST)
+        TEESupabasePublishableKey: $(TEE_SUPABASE_PUBLISHABLE_KEY)
+        TEEWebHost: $(TEE_WEB_HOST)
+        TeeCircleKeychainAccessGroup: $(KEYCHAIN_GROUP_IDENTIFIER)
+        TEEPostHogHost: $(TEE_POSTHOG_HOST)
+        TEEPostHogProjectToken: $(TEE_POSTHOG_PROJECT_TOKEN)
+        TEEGoogleIOSClientID: $(TEE_GOOGLE_IOS_CLIENT_ID)
+        TEEGoogleServerClientID: $(TEE_GOOGLE_SERVER_CLIENT_ID)
+        TEERevenueCatPublicSDKKey: $(TEE_REVENUECAT_PUBLIC_SDK_KEY)
+        TEERevenueCatTripProductID: $(TEE_REVENUECAT_PRODUCT_ID)
+        TEEUseMockData: $(TEE_USE_MOCK_DATA)
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UIBackgroundModes:
+          - remote-notification
+        UIRequiredDeviceCapabilities:
+          - arm64
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    entitlements:
+      path: TeeCircle/TeeCircle.entitlements
+      properties:
+        aps-environment: $(APS_ENVIRONMENT)
+        com.apple.developer.applesignin:
+          - Default
+        com.apple.developer.associated-domains:
+          - applinks:teecircle.vercel.app
+          - applinks:teecircle.app
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+        keychain-access-groups:
+          - $(KEYCHAIN_GROUP_IDENTIFIER)
+    dependencies:
+      - target: TeeCircleMessages
+        embed: true
+      - target: TeeCircleWidgets
+        embed: true
+      - package: TeeCircleKit
+        product: TeeCircleDomain
+      - package: TeeCircleKit
+        product: TeeCircleScoring
+      - package: TeeCircleKit
+        product: TeeCircleAPI
+      - package: TeeCircleKit
+        product: TeeCircleDesign
+      - package: TeeCircleKit
+        product: TeeCircleActivities
+      - package: Supabase
+        product: Supabase
+      - package: GoogleSignIn
+        product: GoogleSignIn
+      - package: GoogleSignIn
+        product: GoogleSignInSwift
+      - package: PostHog
+        product: PostHog
+      - package: RevenueCat
+        product: RevenueCat
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teecircle.app
+        PRODUCT_NAME: TeeCircle
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 10
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_ENTITLEMENTS: TeeCircle/TeeCircle.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: TeeCircle
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - TeeCircleTests
+        - TeeCircleUITests
+
+  TeeCircleMessages:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: TeeCircleMessages
+    resources:
+      - path: TeeCircleMessages/Resources/PrivacyInfo.xcprivacy
+    info:
+      path: TeeCircleMessages/Info.plist
+      properties:
+        CFBundleDisplayName: TeeCircle
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        TeeCircleAppGroupIdentifier: $(APP_GROUP_IDENTIFIER)
+        TeeCircleKeychainAccessGroup: $(KEYCHAIN_GROUP_IDENTIFIER)
+        TeeCircleSupabaseHost: $(TEE_SUPABASE_HOST)
+        TeeCircleSupabasePublishableKey: $(TEE_SUPABASE_PUBLISHABLE_KEY)
+        TeeCircleWebHost: $(TEE_WEB_HOST)
+        NSExtension:
+          NSExtensionAttributes:
+            MSMessagesAppPresentationContextMessages: true
+          NSExtensionPointIdentifier: com.apple.message-payload-provider
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).MessagesViewController
+    entitlements:
+      path: TeeCircleMessages/TeeCircleMessages.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+        keychain-access-groups:
+          - $(KEYCHAIN_GROUP_IDENTIFIER)
+    dependencies:
+      - package: TeeCircleKit
+        product: TeeCircleDomain
+      - package: TeeCircleKit
+        product: TeeCircleAPI
+      - package: TeeCircleKit
+        product: TeeCircleDesign
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teecircle.app.messages
+        PRODUCT_NAME: TeeCircleMessages
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 10
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_ENTITLEMENTS: TeeCircleMessages/TeeCircleMessages.entitlements
+        SKIP_INSTALL: true
+        APPLICATION_EXTENSION_API_ONLY: true
+    scheme:
+      gatherCoverageData: false
+
+  TeeCircleWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: TeeCircleWidgets
+    info:
+      path: TeeCircleWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: TeeCircle Live
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: TeeCircleWidgets/TeeCircleWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+    dependencies:
+      - package: TeeCircleKit
+        product: TeeCircleDomain
+      - package: TeeCircleKit
+        product: TeeCircleDesign
+      - package: TeeCircleKit
+        product: TeeCircleActivities
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teecircle.app.widgets
+        PRODUCT_NAME: TeeCircleWidgets
+        MARKETING_VERSION: 2.0.0
+        CURRENT_PROJECT_VERSION: 10
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_ENTITLEMENTS: TeeCircleWidgets/TeeCircleWidgets.entitlements
+        SKIP_INSTALL: true
+        APPLICATION_EXTENSION_API_ONLY: true
+    scheme:
+      gatherCoverageData: false
+
+  TeeCircleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TeeCircleTests
+    dependencies:
+      - target: TeeCircle
+      - package: TeeCircleKit
+        product: TeeCircleDomain
+      - package: TeeCircleKit
+        product: TeeCircleScoring
+      - package: TeeCircleKit
+        product: TeeCircleAPI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teecircle.app.tests
+        GENERATE_INFOPLIST_FILE: true
+
+  TeeCircleUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: TeeCircleUITests
+    dependencies:
+      - target: TeeCircle
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teecircle.app.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: TeeCircle

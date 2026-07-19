@@ -10,11 +10,16 @@ export function computeTripStandings(
   scoring: Scoring = 'net',
 ): PlayerStanding[] {
   const totals: Record<string, number> = {};
+  let skinsCarry = 1;
   for (const players of rounds) {
-    const standings =
-      format === 'stableford'
-        ? computeStableford(players, scoring)
-        : computeSkins(players, scoring).standings;
+    let standings: PlayerStanding[];
+    if (format === 'stableford') {
+      standings = computeStableford(players, scoring);
+    } else {
+      const skins = computeSkins(players, scoring, skinsCarry);
+      standings = skins.standings;
+      skinsCarry = skins.carry;
+    }
     for (const s of standings) {
       totals[s.playerId] = (totals[s.playerId] ?? 0) + s.value;
     }

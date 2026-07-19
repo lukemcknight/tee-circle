@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "9974PM5L6M.com.teecircle.app"
+        ],
+        "components": [
+          {
+            "/": "/t/*",
+            "comment": "TeeCircle trip invitations and live leaderboards"
+          }
+        ]
+      }
+    ]
+  }
+}

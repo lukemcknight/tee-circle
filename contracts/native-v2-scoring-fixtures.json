@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "strokeAllocation": [
+    { "holeCount": 18, "strokeIndex": 1, "courseHandicap": 0, "expected": 0 },
+    { "holeCount": 18, "strokeIndex": 5, "courseHandicap": 9, "expected": 1 },
+    { "holeCount": 18, "strokeIndex": 10, "courseHandicap": 9, "expected": 0 },
+    { "holeCount": 18, "strokeIndex": 1, "courseHandicap": 20, "expected": 2 },
+    { "holeCount": 18, "strokeIndex": 3, "courseHandicap": 20, "expected": 1 },
+    { "holeCount": 18, "strokeIndex": 18, "courseHandicap": 36, "expected": 2 },
+    { "holeCount": 18, "strokeIndex": 18, "courseHandicap": -2, "expected": -1 },
+    { "holeCount": 18, "strokeIndex": 17, "courseHandicap": -2, "expected": -1 },
+    { "holeCount": 18, "strokeIndex": 1, "courseHandicap": -2, "expected": 0 },
+    { "holeCount": 9, "strokeIndex": 1, "courseHandicap": 10, "expected": 2 },
+    { "holeCount": 9, "strokeIndex": 2, "courseHandicap": 10, "expected": 1 },
+    { "holeCount": 9, "strokeIndex": 9, "courseHandicap": 18, "expected": 2 },
+    { "holeCount": 9, "strokeIndex": 9, "courseHandicap": -2, "expected": -1 },
+    { "holeCount": 9, "strokeIndex": 8, "courseHandicap": -2, "expected": -1 },
+    { "holeCount": 9, "strokeIndex": 1, "courseHandicap": -2, "expected": 0 }
+  ],
+  "stablefordPoints": [
+    { "netStrokes": 1, "par": 4, "expected": 5 },
+    { "netStrokes": 2, "par": 4, "expected": 4 },
+    { "netStrokes": 3, "par": 4, "expected": 3 },
+    { "netStrokes": 4, "par": 4, "expected": 2 },
+    { "netStrokes": 5, "par": 4, "expected": 1 },
+    { "netStrokes": 6, "par": 4, "expected": 0 },
+    { "netStrokes": 9, "par": 4, "expected": 0 },
+    { "netStrokes": 1, "par": 5, "expected": 6 },
+    { "netStrokes": null, "par": 4, "expected": 0 }
+  ],
+  "stablefordBoards": [
+    {
+      "name": "totals net points and sorts winners first",
+      "scoring": "net",
+      "players": [
+        {
+          "playerId": "a",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 },
+            { "hole": 3, "par": 4, "strokeIndex": 3, "strokes": 3 }
+          ]
+        },
+        {
+          "playerId": "b",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 5 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 5 },
+            { "hole": 3, "par": 4, "strokeIndex": 3, "strokes": 5 }
+          ]
+        }
+      ],
+      "expected": [
+        { "playerId": "a", "value": 7 },
+        { "playerId": "b", "value": 3 }
+      ]
+    },
+    {
+      "name": "applies a handicap stroke in net mode",
+      "scoring": "net",
+      "players": [
+        {
+          "playerId": "b",
+          "courseHandicap": 1,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 5 }
+          ]
+        }
+      ],
+      "expected": [
+        { "playerId": "b", "value": 2 }
+      ]
+    },
+    {
+      "name": "preserves roster order for tied values",
+      "scoring": "gross",
+      "players": [
+        {
+          "playerId": "z-first",
+          "courseHandicap": 0,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }]
+        },
+        {
+          "playerId": "a-second",
+          "courseHandicap": 0,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }]
+        }
+      ],
+      "expected": [
+        { "playerId": "z-first", "value": 2 },
+        { "playerId": "a-second", "value": 2 }
+      ]
+    },
+    {
+      "name": "adds penalties once before gross Stableford scoring",
+      "scoring": "gross",
+      "players": [
+        {
+          "playerId": "penalty",
+          "courseHandicap": 0,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4, "penalties": 1 }]
+        },
+        {
+          "playerId": "clean",
+          "courseHandicap": 0,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4, "penalties": 0 }]
+        }
+      ],
+      "expected": [
+        { "playerId": "clean", "value": 2 },
+        { "playerId": "penalty", "value": 1 }
+      ]
+    },
+    {
+      "name": "plus handicaps add strokes on the highest indexes",
+      "scoring": "net",
+      "players": [
+        {
+          "playerId": "plus",
+          "courseHandicap": -1,
+          "holes": [{ "hole": 18, "par": 4, "strokeIndex": 18, "strokes": 4, "penalties": 0 }]
+        }
+      ],
+      "expected": [
+        { "playerId": "plus", "value": 1 }
+      ]
+    }
+  ],
+  "skinsBoards": [
+    {
+      "name": "awards strict low and carries a tie",
+      "scoring": "gross",
+      "players": [
+        {
+          "playerId": "a",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }
+          ]
+        },
+        {
+          "playerId": "b",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }
+          ]
+        }
+      ],
+      "expectedHoles": [
+        { "hole": 1, "winnerId": "a", "skins": 1 },
+        { "hole": 2, "winnerId": null, "carried": 1 }
+      ],
+      "expectedStandings": [
+        { "playerId": "a", "value": 1 },
+        { "playerId": "b", "value": 0 }
+      ]
+    },
+    {
+      "name": "pays the carried pot on the next decisive hole",
+      "scoring": "gross",
+      "players": [
+        {
+          "playerId": "a",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 3 }
+          ]
+        },
+        {
+          "playerId": "b",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 5 }
+          ]
+        }
+      ],
+      "expectedHoles": [
+        { "hole": 1, "winnerId": null, "carried": 1 },
+        { "hole": 2, "winnerId": "a", "skins": 2 }
+      ],
+      "expectedStandings": [
+        { "playerId": "a", "value": 2 },
+        { "playerId": "b", "value": 0 }
+      ]
+    },
+    {
+      "name": "stops at the first incomplete hole",
+      "scoring": "gross",
+      "players": [
+        {
+          "playerId": "a",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }
+          ]
+        },
+        {
+          "playerId": "b",
+          "courseHandicap": 0,
+          "holes": [
+            { "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 },
+            { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": null }
+          ]
+        }
+      ],
+      "expectedHoles": [
+        { "hole": 1, "winnerId": "a", "skins": 1 }
+      ],
+      "expectedStandings": [
+        { "playerId": "a", "value": 1 },
+        { "playerId": "b", "value": 0 }
+      ]
+    },
+    {
+      "name": "uses net scores",
+      "scoring": "net",
+      "players": [
+        {
+          "playerId": "a",
+          "courseHandicap": 0,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }]
+        },
+        {
+          "playerId": "b",
+          "courseHandicap": 1,
+          "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }]
+        }
+      ],
+      "expectedHoles": [
+        { "hole": 1, "winnerId": null, "carried": 1 }
+      ],
+      "expectedStandings": [
+        { "playerId": "a", "value": 0 },
+        { "playerId": "b", "value": 0 }
+      ]
+    }
+  ],
+  "tripBoards": [
+    {
+      "name": "sums Stableford across rounds",
+      "format": "stableford",
+      "scoring": "net",
+      "rounds": [
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] }
+        ],
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 3 }] }
+        ]
+      ],
+      "expected": [{ "playerId": "b", "value": 10 }, { "playerId": "a", "value": 9 }]
+    },
+    {
+      "name": "keeps totals for a player absent later",
+      "format": "stableford",
+      "scoring": "net",
+      "rounds": [
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] }
+        ],
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 3 }] }
+        ]
+      ],
+      "expected": [{ "playerId": "a", "value": 10 }, { "playerId": "b", "value": 5 }]
+    },
+    {
+      "name": "sums skins across rounds",
+      "format": "skins",
+      "scoring": "gross",
+      "rounds": [
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 3 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 5 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] }
+        ],
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 5 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 5 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }, { "hole": 2, "par": 4, "strokeIndex": 2, "strokes": 4 }] }
+        ]
+      ],
+      "expected": [{ "playerId": "b", "value": 3 }, { "playerId": "a", "value": 1 }]
+    },
+    {
+      "name": "carries a tied skin into the next round",
+      "format": "skins",
+      "scoring": "gross",
+      "rounds": [
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }] }
+        ],
+        [
+          { "playerId": "a", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 5 }] },
+          { "playerId": "b", "courseHandicap": 0, "holes": [{ "hole": 1, "par": 4, "strokeIndex": 1, "strokes": 4 }] }
+        ]
+      ],
+      "expected": [{ "playerId": "b", "value": 2 }, { "playerId": "a", "value": 0 }],
+      "expectedCarry": 1
+    }
+  ]
+}

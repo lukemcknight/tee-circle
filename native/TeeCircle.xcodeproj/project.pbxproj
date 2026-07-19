@@ -1,0 +1,1449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		014C93417D5CCC35730669B8 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA716737B24AE74FD0A707 /* MessagesViewModel.swift */; };
+		016B1C67F0BBE24F4AE799A9 /* TeeCircleActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 0630F4851A6D8FA39306A767 /* TeeCircleActivities */; };
+		01ED26D790B851E4F2836E6C /* TeeCircleAPI in Frameworks */ = {isa = PBXBuildFile; productRef = F5C38562D9DB2A6A013193FA /* TeeCircleAPI */; };
+		0A68762EDC65008892C0C316 /* MessagesCompactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124957752995927D8AD96872 /* MessagesCompactView.swift */; };
+		125956A55C15CDC3717FB7BC /* SharedExtensionSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF03654CFC8D6F600127447E /* SharedExtensionSessionStore.swift */; };
+		1334A9A3C6AD7C4BD6FFE22A /* TripRealtimeHintService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDA7DCB21D1E7FB8F5DEBB3 /* TripRealtimeHintService.swift */; };
+		13E0617F229EB54CC8AEEB62 /* LocalTripExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ED31FC9EC24EEA374D0875 /* LocalTripExperience.swift */; };
+		13EE932595D9A59A606E020A /* MessagesRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900D8DB7F8416339E45B465 /* MessagesRootView.swift */; };
+		16086194D52411F39EAF74F5 /* NativeServiceContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDBC79605343407B248F60A /* NativeServiceContractTests.swift */; };
+		17EFF27F29F6EC7DA60585F0 /* MessagesExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AF13A489E36D3C7F93A286 /* MessagesExpandedView.swift */; };
+		18060CC82D2DFF7B300253A6 /* TeeCircleScoring in Frameworks */ = {isa = PBXBuildFile; productRef = B0CFEBE9E51B7540930635BE /* TeeCircleScoring */; };
+		1A7F73AE9982E47CC1A06DD2 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690E158F39F13F09175868F8 /* Brand.swift */; };
+		1C574AB7CECFDC78C185D9B6 /* MessagesSharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4F403AC3CD0FE13E59161E /* MessagesSharedStore.swift */; };
+		1C5FC3F0988E43730D2446E7 /* TeeCircleLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE722E2FA3B7976E12F0913 /* TeeCircleLiveActivityWidget.swift */; };
+		20F7CD34058D48C403E1A7A6 /* TeeCircleAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 52F13A96D6A2505E1C068DB2 /* TeeCircleAPI */; };
+		22D430CB670C2E23AB1E6934 /* ProfileIdentityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07010506AA5E3456B94883 /* ProfileIdentityTests.swift */; };
+		2517295BA4AAF4F9F6D5FC05 /* TeeCircleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C05246153D9F1B7F7294B4 /* TeeCircleRepository.swift */; };
+		27EE1AE7B5B87BE4DA8814B6 /* TeeCircleWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 481993271B93AAC9F8A5160C /* TeeCircleWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27FAA15C5C8FDE2930319C68 /* GolfersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6627AD6798971699F6570E31 /* GolfersView.swift */; };
+		2D4AC77D17B46B9FEAA7FA55 /* TripPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FC7188BFFF767024C0922 /* TripPurchaseService.swift */; };
+		2FF58A726A3B1561637A7971 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = B662C764FD44720E6870C601 /* TeeCircleDesign */; };
+		38183BA3C994C08A842499EF /* TeeCircleStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D1C96E4B79DE376429EFB /* TeeCircleStoreTests.swift */; };
+		3AEACD54F7A8E21DA045F5A1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 030690BBB7434BF7A72346BB /* GoogleSignInSwift */; };
+		3F83A7843D25CFF2C2780700 /* GolferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1925A7607225494B840AD875 /* GolferDetailView.swift */; };
+		3F8A79D3A2AA7F936BFEC007 /* TeeCircleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */; };
+		43A90D02303852165CEF9CD1 /* LegacyTripSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */; };
+		43D374B6FC5811C2C35681B7 /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = 8411B36CB6011BA5CB2EB199 /* PostHog */; };
+		490C4D734E7906F5A70AEE8B /* TeeCircleProductionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E72FF1C046DCF2555DA96E /* TeeCircleProductionServices.swift */; };
+		4F6FD2665BF3A263E1F4894C /* IncomingAppRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BFEA38C2D6EDC3A992D9E /* IncomingAppRouteTests.swift */; };
+		5176C156207870173C4F8347 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = F146973F39EC08E5A93ECF3D /* TeeCircleDomain */; };
+		559C208E1F689E8EE31411DE /* InviteClaimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6F5FB189CAF5C7C98247BB /* InviteClaimView.swift */; };
+		60595AD0BED7A5C54E822847 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BC925EB85D26DCC9E1C21 /* LeaderboardView.swift */; };
+		62A8501765135321693FC100 /* MessagesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1620440C3A5BEA08970FD5F4 /* MessagesConfiguration.swift */; };
+		63B8D3F402D17F2168E7C0B2 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E83026B2FB1346627F0C27 /* MessagesService.swift */; };
+		63CA6444EDCE80B21EC1BBE8 /* GolferSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D2676F49B0BBC8EA46DD12 /* GolferSummary.swift */; };
+		648C8275BC09115640202117 /* EditIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C9068D33802D13B8B46A1C /* EditIdentityView.swift */; };
+		64D160F958B4C0E5CBF1C582 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = C5F4A771BBBD6FB112F2EAF9 /* TeeCircleDomain */; };
+		699EB16B86DF5F192223B55D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB3019B420851502DD26303 /* RootView.swift */; };
+		6D093F349F7E59813BE1B5B5 /* TeeCircleStore+Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CA79425F6BE073AD4EBD44 /* TeeCircleStore+Production.swift */; };
+		739C24E3BE9C00AB37A9FB67 /* TeeCircleScoring in Frameworks */ = {isa = PBXBuildFile; productRef = B2A11A23CD1F18FCE53F2802 /* TeeCircleScoring */; };
+		757C89A1BF0BD2E5692057BF /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A71DFE3959B71612B52B61 /* AppRoute.swift */; };
+		7597CA6B990FF76CC09FB9CC /* ProfileIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7CB41C1F40E01183759172 /* ProfileIdentity.swift */; };
+		78F161A1BEDDA1A5998C7285 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B6232F804B67664700F7F23F /* GoogleSignIn */; };
+		7A08A13556BF659E1AA8F379 /* SupabaseSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1956FAE104304A3C1FE1F8 /* SupabaseSessionService.swift */; };
+		854AA9E1E3118A0D5BC48316 /* MessagesTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4767B99166A738277D4F90 /* MessagesTheme.swift */; };
+		85835E6F28DF330A83601509 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 828A425D6733DF47A19B8E59 /* TeeCircleDomain */; };
+		8A7403EC830D1F174C6F7A8A /* ScorecardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA608DDF0F759C7F310D23 /* ScorecardView.swift */; };
+		8E46B6DE7EABFAE64BE5C6D4 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5A7B41170CA62163C65FB /* AuthenticationView.swift */; };
+		8EC6D4027993F008EF15F794 /* PostHogAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94DDD9F8B22707490A219CB /* PostHogAnalyticsService.swift */; };
+		9B9A4EDF80E9A48AD6AB0813 /* TripPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2E4E54767F3CF950C9E3DB /* TripPaywallView.swift */; };
+		9C5C3395AD37B388D78CDBF6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D1D2475AC785D573CEE5F682 /* PrivacyInfo.xcprivacy */; };
+		A44F01FA523D8B3A72A22739 /* AppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99CCBB4F8F80A9CC2D1A78 /* AppConfigurationTests.swift */; };
+		AB9DC37AF352E455451B2A73 /* TeeCircleAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 9D0DE9EAEF8BB79A2AEEE6B1 /* TeeCircleAPI */; };
+		AF6FE504DE452F435421572F /* TeeCircleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DA186609FB439F27274AE5 /* TeeCircleUITests.swift */; };
+		B08722C37FD0D48DF3C15F96 /* TeeCircleServiceContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3185E4C3F95CA3D88B8AAC2 /* TeeCircleServiceContracts.swift */; };
+		B3A0C912EB77A6ED6E5DB6AE /* TeeCircleLiveActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D211DC615160AB89F6A706 /* TeeCircleLiveActivityService.swift */; };
+		B67BDC722B596773C6F3E9FD /* TripHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42181D77FA9A4731AD495F /* TripHubView.swift */; };
+		B6E2288FBDA489B3A8E942BC /* TeeCircleEndpointCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC11A4CCFA8A4F6C5BF04CA /* TeeCircleEndpointCatalog.swift */; };
+		B8C95CF697C38B95CE49DEB6 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 39048ECF317777F046DD421D /* TeeCircleDesign */; };
+		B900453CAFF25A20841824C2 /* TeeCircleWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F70D03B7277BA3CC86DA233 /* TeeCircleWidgetsBundle.swift */; };
+		BB248B3CB8B81EA712F78DB9 /* PendingScoreQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B628611BEED6B877C170BA5 /* PendingScoreQueue.swift */; };
+		BCC92335B1FA51935D253E82 /* InviteCredentialVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E19D22584AB55F588ECD47 /* InviteCredentialVault.swift */; };
+		BD69E2DA6A951CE4D01FB612 /* TeeCircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429F39A4B2946817CAF6DDF /* TeeCircleApp.swift */; };
+		BE07B753CB94AD4107197534 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 068ECA501887C599CC6885C3 /* Supabase */; };
+		CB78149CDBC3AE1836A2E93A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764B03E6BCA29DCB76DB43E /* MessagesViewController.swift */; };
+		CDE844847418562E6DAB5008 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = CF516D882DF4F58F9A66B129 /* TeeCircleDesign */; };
+		D53A3BB07DAA40635081BE60 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1375200A0E75705C2ABD7B12 /* PrivacyInfo.xcprivacy */; };
+		D5FE920A282F7E9193D536F4 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 43188776866E0198D217D7EE /* TeeCircleDomain */; };
+		D6E853DD9AAFDB4A50B845BC /* MessagesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7004C680E5E250E13568B1C /* MessagesModels.swift */; };
+		DFEBAFA893613AF57509E45C /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6167A054B516BD3B1389BE5 /* ProfileSetupView.swift */; };
+		E034DE74A8A565084A09E228 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0658D7E2268CDAC1DD77739F /* HomeView.swift */; };
+		E2CEE6B9E0D3DEF04E88A1BC /* TeeCircleActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 4A6EC9C2988E3C07E85C6BB8 /* TeeCircleActivities */; };
+		E59A4C71BE2AD66E4FA298B2 /* TeeCircleMessages.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1674D890725112E5F1AB8C65 /* TeeCircleMessages.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E5E2E6E8D05C254D3AAA12BE /* LiveActivityTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E30A30FA96C16AE2995F363 /* LiveActivityTheme.swift */; };
+		E6CC22D30867265B5572FCAD /* CreateTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100242A2756C0BAA9AAD00F7 /* CreateTripView.swift */; };
+		E7B42236D449DB7C55FC9139 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDA31FD6841C47784ECC4E /* ProfileView.swift */; };
+		E7F8AB58CA76D671277062BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD22A67B70D20FF10775736 /* Assets.xcassets */; };
+		F09A4BFA67182D70116FD013 /* LegacyRoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A44FE943AE60029DF9AEA /* LegacyRoundsView.swift */; };
+		F0C3AFF4C15DE80A58B5BAAF /* APNsRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571CE2D9DD4C3A73C2D32E9 /* APNsRegistrationService.swift */; };
+		F15D4F2A329C34608434F854 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = F76560B4010E924A8B522E9D /* RevenueCat */; };
+		F22BDB627B3E66527F36D98F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686992E0ACBA7F898C761AE8 /* AppConfiguration.swift */; };
+		F76F4F130BC6DF52E772E80A /* MessagesTranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC505BC21AAE00CE643B91 /* MessagesTranscriptView.swift */; };
+		FB0315825F10006AFB33D2C7 /* CreateRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DEC9ACF50073092D3AF3ED /* CreateRoundView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D4F868CEBDD7218C974D0A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBDEF2716958F1E6D9FFB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CC6269616C6668C99DCC149;
+			remoteInfo = TeeCircleMessages;
+		};
+		5A7B3B4849B6ECACB61E0B26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBDEF2716958F1E6D9FFB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 513A7AE14477241C9A1AB969;
+			remoteInfo = TeeCircle;
+		};
+		8AF80FB2F0DEF251773E22BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBDEF2716958F1E6D9FFB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC04C809E19ABE6A73B76839;
+			remoteInfo = TeeCircleWidgets;
+		};
+		D2B720FA1A1507804071B807 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFBDEF2716958F1E6D9FFB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 513A7AE14477241C9A1AB969;
+			remoteInfo = TeeCircle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7517F410BFAD4AFFA7E3C05C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E59A4C71BE2AD66E4FA298B2 /* TeeCircleMessages.appex in Embed Foundation Extensions */,
+				27EE1AE7B5B87BE4DA8814B6 /* TeeCircleWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		02C9068D33802D13B8B46A1C /* EditIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdentityView.swift; sourceTree = "<group>"; };
+		0658D7E2268CDAC1DD77739F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0938D12FF13C1B13B6CE57B2 /* TeeCircleWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeeCircleWidgets.entitlements; sourceTree = "<group>"; };
+		09962D7BEC6DE2A6F24DE4C7 /* TeeCircleMessages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeeCircleMessages.entitlements; sourceTree = "<group>"; };
+		0C6F5FB189CAF5C7C98247BB /* InviteClaimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteClaimView.swift; sourceTree = "<group>"; };
+		0D7CB41C1F40E01183759172 /* ProfileIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIdentity.swift; sourceTree = "<group>"; };
+		100242A2756C0BAA9AAD00F7 /* CreateTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTripView.swift; sourceTree = "<group>"; };
+		10954C99400AADEAC65CE4ED /* TeeCircle.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TeeCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		124957752995927D8AD96872 /* MessagesCompactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCompactView.swift; sourceTree = "<group>"; };
+		1375200A0E75705C2ABD7B12 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1620440C3A5BEA08970FD5F4 /* MessagesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesConfiguration.swift; sourceTree = "<group>"; };
+		1674D890725112E5F1AB8C65 /* TeeCircleMessages.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TeeCircleMessages.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		17E83026B2FB1346627F0C27 /* MessagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
+		1925A7607225494B840AD875 /* GolferDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolferDetailView.swift; sourceTree = "<group>"; };
+		1EB3019B420851502DD26303 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		23CA608DDF0F759C7F310D23 /* ScorecardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorecardView.swift; sourceTree = "<group>"; };
+		24B5A7B41170CA62163C65FB /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		28E19D22584AB55F588ECD47 /* InviteCredentialVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCredentialVault.swift; sourceTree = "<group>"; };
+		29719B09C19288E9229A2E06 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyTripSetupView.swift; sourceTree = "<group>"; };
+		35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleStore.swift; sourceTree = "<group>"; };
+		3BE722E2FA3B7976E12F0913 /* TeeCircleLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleLiveActivityWidget.swift; sourceTree = "<group>"; };
+		45A71DFE3959B71612B52B61 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
+		481993271B93AAC9F8A5160C /* TeeCircleWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TeeCircleWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		49AF13A489E36D3C7F93A286 /* MessagesExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesExpandedView.swift; sourceTree = "<group>"; };
+		4DC11A4CCFA8A4F6C5BF04CA /* TeeCircleEndpointCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleEndpointCatalog.swift; sourceTree = "<group>"; };
+		52DA186609FB439F27274AE5 /* TeeCircleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleUITests.swift; sourceTree = "<group>"; };
+		53ED31FC9EC24EEA374D0875 /* LocalTripExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTripExperience.swift; sourceTree = "<group>"; };
+		5571CE2D9DD4C3A73C2D32E9 /* APNsRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNsRegistrationService.swift; sourceTree = "<group>"; };
+		56E477C1E9A6DF4720C516E8 /* TeeCircleKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TeeCircleKit; path = Packages/TeeCircleKit; sourceTree = SOURCE_ROOT; };
+		6563DAD68976E3DD73A536E4 /* TeeCircleTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TeeCircleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C05246153D9F1B7F7294B4 /* TeeCircleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleRepository.swift; sourceTree = "<group>"; };
+		6627AD6798971699F6570E31 /* GolfersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfersView.swift; sourceTree = "<group>"; };
+		686992E0ACBA7F898C761AE8 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		690E158F39F13F09175868F8 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		6B2E4E54767F3CF950C9E3DB /* TripPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPaywallView.swift; sourceTree = "<group>"; };
+		6C6BC925EB85D26DCC9E1C21 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		6CDBC79605343407B248F60A /* NativeServiceContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeServiceContractTests.swift; sourceTree = "<group>"; };
+		7429F39A4B2946817CAF6DDF /* TeeCircleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleApp.swift; sourceTree = "<group>"; };
+		7A1956FAE104304A3C1FE1F8 /* SupabaseSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseSessionService.swift; sourceTree = "<group>"; };
+		7D99CCBB4F8F80A9CC2D1A78 /* AppConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurationTests.swift; sourceTree = "<group>"; };
+		80CA79425F6BE073AD4EBD44 /* TeeCircleStore+Production.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeeCircleStore+Production.swift"; sourceTree = "<group>"; };
+		83E72FF1C046DCF2555DA96E /* TeeCircleProductionServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleProductionServices.swift; sourceTree = "<group>"; };
+		882606AB60AF5413A7119808 /* TeeCircle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeeCircle.entitlements; sourceTree = "<group>"; };
+		8F70D03B7277BA3CC86DA233 /* TeeCircleWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleWidgetsBundle.swift; sourceTree = "<group>"; };
+		997884D77C77D5EA07F9DF2F /* TeeCircleUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TeeCircleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B628611BEED6B877C170BA5 /* PendingScoreQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingScoreQueue.swift; sourceTree = "<group>"; };
+		9D4767B99166A738277D4F90 /* MessagesTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTheme.swift; sourceTree = "<group>"; };
+		9E30A30FA96C16AE2995F363 /* LiveActivityTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityTheme.swift; sourceTree = "<group>"; };
+		ABDA7DCB21D1E7FB8F5DEBB3 /* TripRealtimeHintService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRealtimeHintService.swift; sourceTree = "<group>"; };
+		AF09AECEE76172277E42D964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B6167A054B516BD3B1389BE5 /* ProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupView.swift; sourceTree = "<group>"; };
+		B6DEC9ACF50073092D3AF3ED /* CreateRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoundView.swift; sourceTree = "<group>"; };
+		B86BFEA38C2D6EDC3A992D9E /* IncomingAppRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingAppRouteTests.swift; sourceTree = "<group>"; };
+		BD4F403AC3CD0FE13E59161E /* MessagesSharedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesSharedStore.swift; sourceTree = "<group>"; };
+		BD8D1C96E4B79DE376429EFB /* TeeCircleStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleStoreTests.swift; sourceTree = "<group>"; };
+		C00A44FE943AE60029DF9AEA /* LegacyRoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyRoundsView.swift; sourceTree = "<group>"; };
+		C3185E4C3F95CA3D88B8AAC2 /* TeeCircleServiceContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleServiceContracts.swift; sourceTree = "<group>"; };
+		C3EDA31FD6841C47784ECC4E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C7004C680E5E250E13568B1C /* MessagesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesModels.swift; sourceTree = "<group>"; };
+		C900D8DB7F8416339E45B465 /* MessagesRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRootView.swift; sourceTree = "<group>"; };
+		C920B9133741163C2C9151A2 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		CAD22A67B70D20FF10775736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE42181D77FA9A4731AD495F /* TripHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHubView.swift; sourceTree = "<group>"; };
+		D1D2475AC785D573CEE5F682 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D2D211DC615160AB89F6A706 /* TeeCircleLiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleLiveActivityService.swift; sourceTree = "<group>"; };
+		D48FC7188BFFF767024C0922 /* TripPurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPurchaseService.swift; sourceTree = "<group>"; };
+		DF8AF27BDCAF3B5D505D1A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E45A8570F1C1FE4CB98F7C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E94DDD9F8B22707490A219CB /* PostHogAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHogAnalyticsService.swift; sourceTree = "<group>"; };
+		EECA716737B24AE74FD0A707 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		EF03654CFC8D6F600127447E /* SharedExtensionSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedExtensionSessionStore.swift; sourceTree = "<group>"; };
+		F5D2676F49B0BBC8EA46DD12 /* GolferSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolferSummary.swift; sourceTree = "<group>"; };
+		F764B03E6BCA29DCB76DB43E /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		FA07010506AA5E3456B94883 /* ProfileIdentityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIdentityTests.swift; sourceTree = "<group>"; };
+		FBBC505BC21AAE00CE643B91 /* MessagesTranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTranscriptView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FB6452CC674B573A1E2EB3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D160F958B4C0E5CBF1C582 /* TeeCircleDomain in Frameworks */,
+				AB9DC37AF352E455451B2A73 /* TeeCircleAPI in Frameworks */,
+				B8C95CF697C38B95CE49DEB6 /* TeeCircleDesign in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65DB610A8587B72DA1D1F944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5FE920A282F7E9193D536F4 /* TeeCircleDomain in Frameworks */,
+				18060CC82D2DFF7B300253A6 /* TeeCircleScoring in Frameworks */,
+				20F7CD34058D48C403E1A7A6 /* TeeCircleAPI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7EE6F6A21995185FC2E5F5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85835E6F28DF330A83601509 /* TeeCircleDomain in Frameworks */,
+				739C24E3BE9C00AB37A9FB67 /* TeeCircleScoring in Frameworks */,
+				01ED26D790B851E4F2836E6C /* TeeCircleAPI in Frameworks */,
+				CDE844847418562E6DAB5008 /* TeeCircleDesign in Frameworks */,
+				E2CEE6B9E0D3DEF04E88A1BC /* TeeCircleActivities in Frameworks */,
+				BE07B753CB94AD4107197534 /* Supabase in Frameworks */,
+				78F161A1BEDDA1A5998C7285 /* GoogleSignIn in Frameworks */,
+				3AEACD54F7A8E21DA045F5A1 /* GoogleSignInSwift in Frameworks */,
+				43D374B6FC5811C2C35681B7 /* PostHog in Frameworks */,
+				F15D4F2A329C34608434F854 /* RevenueCat in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E13A03050588D9B243968155 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5176C156207870173C4F8347 /* TeeCircleDomain in Frameworks */,
+				2FF58A726A3B1561637A7971 /* TeeCircleDesign in Frameworks */,
+				016B1C67F0BBE24F4AE799A9 /* TeeCircleActivities in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01D859D91F9571FCD0708F5D /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				100242A2756C0BAA9AAD00F7 /* CreateTripView.swift */,
+				0C6F5FB189CAF5C7C98247BB /* InviteClaimView.swift */,
+				CE42181D77FA9A4731AD495F /* TripHubView.swift */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		06CD76C694CD71C3CA80E76A /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				D2D211DC615160AB89F6A706 /* TeeCircleLiveActivityService.swift */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
+		0C94A016B4D71C2A52F433B3 /* TeeCircle */ = {
+			isa = PBXGroup;
+			children = (
+				882606AB60AF5413A7119808 /* TeeCircle.entitlements */,
+				4DF0EE9FC7EE5479D38075F4 /* App */,
+				BE55A0104D072001DA8EB224 /* Features */,
+				BE12F94B9B73FED70F8FD716 /* Resources */,
+				1C480BB920CB212D12C99BEC /* Services */,
+			);
+			path = TeeCircle;
+			sourceTree = "<group>";
+		};
+		0D30EA2E18E24950F554FB2B /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				C00A44FE943AE60029DF9AEA /* LegacyRoundsView.swift */,
+				2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		1C480BB920CB212D12C99BEC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9CBFC4A1E7CA4C2BD8808B24 /* Analytics */,
+				57B81B168A6CF2B9289A7F42 /* API */,
+				92AD6FE6B9A744A0F791A9E2 /* Auth */,
+				06CD76C694CD71C3CA80E76A /* LiveActivity */,
+				FF8515D46E9F9996D8977BF8 /* Notifications */,
+				36D2A170C676D3E920EBB1EF /* Purchases */,
+				64A7855B2FF5F7C231FFE87D /* Security */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		25756C6C4ACAE8801B2BF04C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1375200A0E75705C2ABD7B12 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		282DB3F371DD3935C6518B70 = {
+			isa = PBXGroup;
+			children = (
+				8F4FE8CE96C6FED373C79F26 /* Config */,
+				BC8DCEABD0955FCC32B07A33 /* Packages */,
+				0C94A016B4D71C2A52F433B3 /* TeeCircle */,
+				C712544C31F798FC34C965D9 /* TeeCircleMessages */,
+				C17C3FE92B493FEC91FB13A6 /* TeeCircleTests */,
+				DECAF26401795478002C4A94 /* TeeCircleUITests */,
+				CFDF752B8EB407AE5B226207 /* TeeCircleWidgets */,
+				2D46BEC1E289BC6770168ACF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D46BEC1E289BC6770168ACF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10954C99400AADEAC65CE4ED /* TeeCircle.app */,
+				1674D890725112E5F1AB8C65 /* TeeCircleMessages.appex */,
+				6563DAD68976E3DD73A536E4 /* TeeCircleTests.xctest */,
+				997884D77C77D5EA07F9DF2F /* TeeCircleUITests.xctest */,
+				481993271B93AAC9F8A5160C /* TeeCircleWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E879C3D629893A8EC5B1E4F /* Golfers */ = {
+			isa = PBXGroup;
+			children = (
+				1925A7607225494B840AD875 /* GolferDetailView.swift */,
+				F5D2676F49B0BBC8EA46DD12 /* GolferSummary.swift */,
+				6627AD6798971699F6570E31 /* GolfersView.swift */,
+			);
+			path = Golfers;
+			sourceTree = "<group>";
+		};
+		36D2A170C676D3E920EBB1EF /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				D48FC7188BFFF767024C0922 /* TripPurchaseService.swift */,
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
+		3EFFCAAF92A886FC2569DEF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				124957752995927D8AD96872 /* MessagesCompactView.swift */,
+				49AF13A489E36D3C7F93A286 /* MessagesExpandedView.swift */,
+				C900D8DB7F8416339E45B465 /* MessagesRootView.swift */,
+				9D4767B99166A738277D4F90 /* MessagesTheme.swift */,
+				FBBC505BC21AAE00CE643B91 /* MessagesTranscriptView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DF0EE9FC7EE5479D38075F4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				686992E0ACBA7F898C761AE8 /* AppConfiguration.swift */,
+				45A71DFE3959B71612B52B61 /* AppRoute.swift */,
+				690E158F39F13F09175868F8 /* Brand.swift */,
+				28E19D22584AB55F588ECD47 /* InviteCredentialVault.swift */,
+				53ED31FC9EC24EEA374D0875 /* LocalTripExperience.swift */,
+				9B628611BEED6B877C170BA5 /* PendingScoreQueue.swift */,
+				0D7CB41C1F40E01183759172 /* ProfileIdentity.swift */,
+				1EB3019B420851502DD26303 /* RootView.swift */,
+				7429F39A4B2946817CAF6DDF /* TeeCircleApp.swift */,
+				83E72FF1C046DCF2555DA96E /* TeeCircleProductionServices.swift */,
+				35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */,
+				80CA79425F6BE073AD4EBD44 /* TeeCircleStore+Production.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		57B81B168A6CF2B9289A7F42 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4DC11A4CCFA8A4F6C5BF04CA /* TeeCircleEndpointCatalog.swift */,
+				65C05246153D9F1B7F7294B4 /* TeeCircleRepository.swift */,
+				C3185E4C3F95CA3D88B8AAC2 /* TeeCircleServiceContracts.swift */,
+				ABDA7DCB21D1E7FB8F5DEBB3 /* TripRealtimeHintService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		64A7855B2FF5F7C231FFE87D /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				EF03654CFC8D6F600127447E /* SharedExtensionSessionStore.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		6F9DA8515DB808BFDA931475 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1620440C3A5BEA08970FD5F4 /* MessagesConfiguration.swift */,
+				C7004C680E5E250E13568B1C /* MessagesModels.swift */,
+				BD4F403AC3CD0FE13E59161E /* MessagesSharedStore.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		85DA767852E89E736FD8D0F9 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				23CA608DDF0F759C7F310D23 /* ScorecardView.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		8797F8C5E8E0928DEE544A93 /* Rounds */ = {
+			isa = PBXGroup;
+			children = (
+				B6DEC9ACF50073092D3AF3ED /* CreateRoundView.swift */,
+			);
+			path = Rounds;
+			sourceTree = "<group>";
+		};
+		8F4FE8CE96C6FED373C79F26 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C920B9133741163C2C9151A2 /* Debug.xcconfig */,
+				29719B09C19288E9229A2E06 /* Release.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		92AD6FE6B9A744A0F791A9E2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7A1956FAE104304A3C1FE1F8 /* SupabaseSessionService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9663B851FC8D05EB86D7466B /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				6C6BC925EB85D26DCC9E1C21 /* LeaderboardView.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		9CBFC4A1E7CA4C2BD8808B24 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E94DDD9F8B22707490A219CB /* PostHogAnalyticsService.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		ADDE96C501C2496CE83F435D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0658D7E2268CDAC1DD77739F /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BC8DCEABD0955FCC32B07A33 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				56E477C1E9A6DF4720C516E8 /* TeeCircleKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		BE12F94B9B73FED70F8FD716 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAD22A67B70D20FF10775736 /* Assets.xcassets */,
+				AF09AECEE76172277E42D964 /* Info.plist */,
+				D1D2475AC785D573CEE5F682 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE55A0104D072001DA8EB224 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DFE50DA7338AF226676FA43F /* Account */,
+				F60ACE36EB0F8D4E75B3D93C /* Authentication */,
+				2E879C3D629893A8EC5B1E4F /* Golfers */,
+				ADDE96C501C2496CE83F435D /* Home */,
+				9663B851FC8D05EB86D7466B /* Leaderboard */,
+				0D30EA2E18E24950F554FB2B /* Legacy */,
+				C3D809D6503C43CD153505D0 /* Purchases */,
+				8797F8C5E8E0928DEE544A93 /* Rounds */,
+				85DA767852E89E736FD8D0F9 /* Scoring */,
+				01D859D91F9571FCD0708F5D /* Trips */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C17C3FE92B493FEC91FB13A6 /* TeeCircleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7D99CCBB4F8F80A9CC2D1A78 /* AppConfigurationTests.swift */,
+				B86BFEA38C2D6EDC3A992D9E /* IncomingAppRouteTests.swift */,
+				6CDBC79605343407B248F60A /* NativeServiceContractTests.swift */,
+				FA07010506AA5E3456B94883 /* ProfileIdentityTests.swift */,
+				BD8D1C96E4B79DE376429EFB /* TeeCircleStoreTests.swift */,
+			);
+			path = TeeCircleTests;
+			sourceTree = "<group>";
+		};
+		C3D809D6503C43CD153505D0 /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				6B2E4E54767F3CF950C9E3DB /* TripPaywallView.swift */,
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
+		C712544C31F798FC34C965D9 /* TeeCircleMessages */ = {
+			isa = PBXGroup;
+			children = (
+				DF8AF27BDCAF3B5D505D1A5A /* Info.plist */,
+				F764B03E6BCA29DCB76DB43E /* MessagesViewController.swift */,
+				EECA716737B24AE74FD0A707 /* MessagesViewModel.swift */,
+				09962D7BEC6DE2A6F24DE4C7 /* TeeCircleMessages.entitlements */,
+				F7A925A182E0F16E38D177BA /* Networking */,
+				25756C6C4ACAE8801B2BF04C /* Resources */,
+				6F9DA8515DB808BFDA931475 /* Shared */,
+				3EFFCAAF92A886FC2569DEF2 /* Views */,
+			);
+			path = TeeCircleMessages;
+			sourceTree = "<group>";
+		};
+		CFDF752B8EB407AE5B226207 /* TeeCircleWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				E45A8570F1C1FE4CB98F7C49 /* Info.plist */,
+				9E30A30FA96C16AE2995F363 /* LiveActivityTheme.swift */,
+				3BE722E2FA3B7976E12F0913 /* TeeCircleLiveActivityWidget.swift */,
+				0938D12FF13C1B13B6CE57B2 /* TeeCircleWidgets.entitlements */,
+				8F70D03B7277BA3CC86DA233 /* TeeCircleWidgetsBundle.swift */,
+			);
+			path = TeeCircleWidgets;
+			sourceTree = "<group>";
+		};
+		DECAF26401795478002C4A94 /* TeeCircleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52DA186609FB439F27274AE5 /* TeeCircleUITests.swift */,
+			);
+			path = TeeCircleUITests;
+			sourceTree = "<group>";
+		};
+		DFE50DA7338AF226676FA43F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				02C9068D33802D13B8B46A1C /* EditIdentityView.swift */,
+				B6167A054B516BD3B1389BE5 /* ProfileSetupView.swift */,
+				C3EDA31FD6841C47784ECC4E /* ProfileView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		F60ACE36EB0F8D4E75B3D93C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				24B5A7B41170CA62163C65FB /* AuthenticationView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F7A925A182E0F16E38D177BA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				17E83026B2FB1346627F0C27 /* MessagesService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FF8515D46E9F9996D8977BF8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				5571CE2D9DD4C3A73C2D32E9 /* APNsRegistrationService.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CC6269616C6668C99DCC149 /* TeeCircleMessages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D613252A41CD71FCBAE53B16 /* Build configuration list for PBXNativeTarget "TeeCircleMessages" */;
+			buildPhases = (
+				465B9B5763B46FC7AB9FABEF /* Sources */,
+				E4BDA8456C2B6A42E5C5B5C6 /* Resources */,
+				1FB6452CC674B573A1E2EB3B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeeCircleMessages;
+			packageProductDependencies = (
+				C5F4A771BBBD6FB112F2EAF9 /* TeeCircleDomain */,
+				9D0DE9EAEF8BB79A2AEEE6B1 /* TeeCircleAPI */,
+				39048ECF317777F046DD421D /* TeeCircleDesign */,
+			);
+			productName = TeeCircleMessages;
+			productReference = 1674D890725112E5F1AB8C65 /* TeeCircleMessages.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		513A7AE14477241C9A1AB969 /* TeeCircle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B63C728E1D69C467FE3EE3E /* Build configuration list for PBXNativeTarget "TeeCircle" */;
+			buildPhases = (
+				C818F4EFDBF950F7D80F130E /* Sources */,
+				D92EAB94E6917D9FCEAF7ACF /* Resources */,
+				B7EE6F6A21995185FC2E5F5F /* Frameworks */,
+				7517F410BFAD4AFFA7E3C05C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DEAAC4ED3803133F24A9289 /* PBXTargetDependency */,
+				211928F44EA5971A13A4CAF9 /* PBXTargetDependency */,
+			);
+			name = TeeCircle;
+			packageProductDependencies = (
+				828A425D6733DF47A19B8E59 /* TeeCircleDomain */,
+				B2A11A23CD1F18FCE53F2802 /* TeeCircleScoring */,
+				F5C38562D9DB2A6A013193FA /* TeeCircleAPI */,
+				CF516D882DF4F58F9A66B129 /* TeeCircleDesign */,
+				4A6EC9C2988E3C07E85C6BB8 /* TeeCircleActivities */,
+				068ECA501887C599CC6885C3 /* Supabase */,
+				B6232F804B67664700F7F23F /* GoogleSignIn */,
+				030690BBB7434BF7A72346BB /* GoogleSignInSwift */,
+				8411B36CB6011BA5CB2EB199 /* PostHog */,
+				F76560B4010E924A8B522E9D /* RevenueCat */,
+			);
+			productName = TeeCircle;
+			productReference = 10954C99400AADEAC65CE4ED /* TeeCircle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC04C809E19ABE6A73B76839 /* TeeCircleWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 487F7CA6BA84F44E11876F99 /* Build configuration list for PBXNativeTarget "TeeCircleWidgets" */;
+			buildPhases = (
+				22F986201A3E4A584431F0AA /* Sources */,
+				E13A03050588D9B243968155 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeeCircleWidgets;
+			packageProductDependencies = (
+				F146973F39EC08E5A93ECF3D /* TeeCircleDomain */,
+				B662C764FD44720E6870C601 /* TeeCircleDesign */,
+				0630F4851A6D8FA39306A767 /* TeeCircleActivities */,
+			);
+			productName = TeeCircleWidgets;
+			productReference = 481993271B93AAC9F8A5160C /* TeeCircleWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		D10C4F2A6FB4AA33CD88B30B /* TeeCircleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 541F07BCFCD57239218BED7F /* Build configuration list for PBXNativeTarget "TeeCircleTests" */;
+			buildPhases = (
+				24E0F6A45CDBCD279E0FCF6D /* Sources */,
+				65DB610A8587B72DA1D1F944 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0443A2CC56FF4EEB209F069 /* PBXTargetDependency */,
+			);
+			name = TeeCircleTests;
+			packageProductDependencies = (
+				43188776866E0198D217D7EE /* TeeCircleDomain */,
+				B0CFEBE9E51B7540930635BE /* TeeCircleScoring */,
+				52F13A96D6A2505E1C068DB2 /* TeeCircleAPI */,
+			);
+			productName = TeeCircleTests;
+			productReference = 6563DAD68976E3DD73A536E4 /* TeeCircleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA0C1A427FA82C17325EB646 /* TeeCircleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01315EB8FB2CA06DEB818CCF /* Build configuration list for PBXNativeTarget "TeeCircleUITests" */;
+			buildPhases = (
+				D77EE493F6E0F4682A5C092B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93E4D2744456A14081741005 /* PBXTargetDependency */,
+			);
+			name = TeeCircleUITests;
+			packageProductDependencies = (
+			);
+			productName = TeeCircleUITests;
+			productReference = 997884D77C77D5EA07F9DF2F /* TeeCircleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFBDEF2716958F1E6D9FFB26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					2CC6269616C6668C99DCC149 = {
+						DevelopmentTeam = 9974PM5L6M;
+						ProvisioningStyle = Automatic;
+					};
+					513A7AE14477241C9A1AB969 = {
+						DevelopmentTeam = 9974PM5L6M;
+						ProvisioningStyle = Automatic;
+					};
+					BC04C809E19ABE6A73B76839 = {
+						DevelopmentTeam = 9974PM5L6M;
+						ProvisioningStyle = Automatic;
+					};
+					D10C4F2A6FB4AA33CD88B30B = {
+						DevelopmentTeam = 9974PM5L6M;
+						ProvisioningStyle = Automatic;
+					};
+					DA0C1A427FA82C17325EB646 = {
+						DevelopmentTeam = 9974PM5L6M;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 513A7AE14477241C9A1AB969;
+					};
+				};
+			};
+			buildConfigurationList = 9ACEF68ECAD4BF019AFD4941 /* Build configuration list for PBXProject "TeeCircle" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 282DB3F371DD3935C6518B70;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E8B45A514FA8EE98E7AF5E56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				BBDC6F20305424C396C16480 /* XCRemoteSwiftPackageReference "posthog-ios" */,
+				2BB163D904989A944CA42B41 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				F9AEECD9E96BCA4E2BA71D49 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				4DE7F1FAEBC3A0129F1C9CBC /* XCLocalSwiftPackageReference "Packages/TeeCircleKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2D46BEC1E289BC6770168ACF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				513A7AE14477241C9A1AB969 /* TeeCircle */,
+				2CC6269616C6668C99DCC149 /* TeeCircleMessages */,
+				D10C4F2A6FB4AA33CD88B30B /* TeeCircleTests */,
+				DA0C1A427FA82C17325EB646 /* TeeCircleUITests */,
+				BC04C809E19ABE6A73B76839 /* TeeCircleWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D92EAB94E6917D9FCEAF7ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7F8AB58CA76D671277062BC /* Assets.xcassets in Resources */,
+				9C5C3395AD37B388D78CDBF6 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BDA8456C2B6A42E5C5B5C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D53A3BB07DAA40635081BE60 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22F986201A3E4A584431F0AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5E2E6E8D05C254D3AAA12BE /* LiveActivityTheme.swift in Sources */,
+				1C5FC3F0988E43730D2446E7 /* TeeCircleLiveActivityWidget.swift in Sources */,
+				B900453CAFF25A20841824C2 /* TeeCircleWidgetsBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24E0F6A45CDBCD279E0FCF6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A44F01FA523D8B3A72A22739 /* AppConfigurationTests.swift in Sources */,
+				4F6FD2665BF3A263E1F4894C /* IncomingAppRouteTests.swift in Sources */,
+				16086194D52411F39EAF74F5 /* NativeServiceContractTests.swift in Sources */,
+				22D430CB670C2E23AB1E6934 /* ProfileIdentityTests.swift in Sources */,
+				38183BA3C994C08A842499EF /* TeeCircleStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		465B9B5763B46FC7AB9FABEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A68762EDC65008892C0C316 /* MessagesCompactView.swift in Sources */,
+				62A8501765135321693FC100 /* MessagesConfiguration.swift in Sources */,
+				17EFF27F29F6EC7DA60585F0 /* MessagesExpandedView.swift in Sources */,
+				D6E853DD9AAFDB4A50B845BC /* MessagesModels.swift in Sources */,
+				13EE932595D9A59A606E020A /* MessagesRootView.swift in Sources */,
+				63B8D3F402D17F2168E7C0B2 /* MessagesService.swift in Sources */,
+				1C574AB7CECFDC78C185D9B6 /* MessagesSharedStore.swift in Sources */,
+				854AA9E1E3118A0D5BC48316 /* MessagesTheme.swift in Sources */,
+				F76F4F130BC6DF52E772E80A /* MessagesTranscriptView.swift in Sources */,
+				CB78149CDBC3AE1836A2E93A /* MessagesViewController.swift in Sources */,
+				014C93417D5CCC35730669B8 /* MessagesViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C818F4EFDBF950F7D80F130E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0C3AFF4C15DE80A58B5BAAF /* APNsRegistrationService.swift in Sources */,
+				F22BDB627B3E66527F36D98F /* AppConfiguration.swift in Sources */,
+				757C89A1BF0BD2E5692057BF /* AppRoute.swift in Sources */,
+				8E46B6DE7EABFAE64BE5C6D4 /* AuthenticationView.swift in Sources */,
+				1A7F73AE9982E47CC1A06DD2 /* Brand.swift in Sources */,
+				FB0315825F10006AFB33D2C7 /* CreateRoundView.swift in Sources */,
+				E6CC22D30867265B5572FCAD /* CreateTripView.swift in Sources */,
+				648C8275BC09115640202117 /* EditIdentityView.swift in Sources */,
+				3F83A7843D25CFF2C2780700 /* GolferDetailView.swift in Sources */,
+				63CA6444EDCE80B21EC1BBE8 /* GolferSummary.swift in Sources */,
+				27FAA15C5C8FDE2930319C68 /* GolfersView.swift in Sources */,
+				E034DE74A8A565084A09E228 /* HomeView.swift in Sources */,
+				559C208E1F689E8EE31411DE /* InviteClaimView.swift in Sources */,
+				BCC92335B1FA51935D253E82 /* InviteCredentialVault.swift in Sources */,
+				60595AD0BED7A5C54E822847 /* LeaderboardView.swift in Sources */,
+				F09A4BFA67182D70116FD013 /* LegacyRoundsView.swift in Sources */,
+				43A90D02303852165CEF9CD1 /* LegacyTripSetupView.swift in Sources */,
+				13E0617F229EB54CC8AEEB62 /* LocalTripExperience.swift in Sources */,
+				BB248B3CB8B81EA712F78DB9 /* PendingScoreQueue.swift in Sources */,
+				8EC6D4027993F008EF15F794 /* PostHogAnalyticsService.swift in Sources */,
+				7597CA6B990FF76CC09FB9CC /* ProfileIdentity.swift in Sources */,
+				DFEBAFA893613AF57509E45C /* ProfileSetupView.swift in Sources */,
+				E7B42236D449DB7C55FC9139 /* ProfileView.swift in Sources */,
+				699EB16B86DF5F192223B55D /* RootView.swift in Sources */,
+				8A7403EC830D1F174C6F7A8A /* ScorecardView.swift in Sources */,
+				125956A55C15CDC3717FB7BC /* SharedExtensionSessionStore.swift in Sources */,
+				7A08A13556BF659E1AA8F379 /* SupabaseSessionService.swift in Sources */,
+				BD69E2DA6A951CE4D01FB612 /* TeeCircleApp.swift in Sources */,
+				B6E2288FBDA489B3A8E942BC /* TeeCircleEndpointCatalog.swift in Sources */,
+				B3A0C912EB77A6ED6E5DB6AE /* TeeCircleLiveActivityService.swift in Sources */,
+				490C4D734E7906F5A70AEE8B /* TeeCircleProductionServices.swift in Sources */,
+				2517295BA4AAF4F9F6D5FC05 /* TeeCircleRepository.swift in Sources */,
+				B08722C37FD0D48DF3C15F96 /* TeeCircleServiceContracts.swift in Sources */,
+				6D093F349F7E59813BE1B5B5 /* TeeCircleStore+Production.swift in Sources */,
+				3F8A79D3A2AA7F936BFEC007 /* TeeCircleStore.swift in Sources */,
+				B67BDC722B596773C6F3E9FD /* TripHubView.swift in Sources */,
+				9B9A4EDF80E9A48AD6AB0813 /* TripPaywallView.swift in Sources */,
+				2D4AC77D17B46B9FEAA7FA55 /* TripPurchaseService.swift in Sources */,
+				1334A9A3C6AD7C4BD6FFE22A /* TripRealtimeHintService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77EE493F6E0F4682A5C092B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF6FE504DE452F435421572F /* TeeCircleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		211928F44EA5971A13A4CAF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC04C809E19ABE6A73B76839 /* TeeCircleWidgets */;
+			targetProxy = 8AF80FB2F0DEF251773E22BD /* PBXContainerItemProxy */;
+		};
+		93E4D2744456A14081741005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 513A7AE14477241C9A1AB969 /* TeeCircle */;
+			targetProxy = 5A7B3B4849B6ECACB61E0B26 /* PBXContainerItemProxy */;
+		};
+		9DEAAC4ED3803133F24A9289 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CC6269616C6668C99DCC149 /* TeeCircleMessages */;
+			targetProxy = 0D4F868CEBDD7218C974D0A9 /* PBXContainerItemProxy */;
+		};
+		C0443A2CC56FF4EEB209F069 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 513A7AE14477241C9A1AB969 /* TeeCircle */;
+			targetProxy = D2B720FA1A1507804071B807 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D092F174A26795546DBAD59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeeCircle/TeeCircle.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircle/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeeCircle;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app;
+				PRODUCT_NAME = TeeCircle;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0D940A6E9F450AE6D7A26467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29719B09C19288E9229A2E06 /* Release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9974PM5L6M;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0F4C38912C49682AF66E78E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TeeCircleWidgets/TeeCircleWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircleWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.widgets;
+				PRODUCT_NAME = TeeCircleWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		16F40BFE403F7A0680CED2AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C920B9133741163C2C9151A2 /* Debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9974PM5L6M;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4921AB4E900810CC8ABAF46D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TeeCircleMessages/TeeCircleMessages.entitlements;
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircleMessages/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.messages;
+				PRODUCT_NAME = TeeCircleMessages;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		55E9BD9AED2A4F4B1B3866A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TeeCircle;
+			};
+			name = Debug;
+		};
+		73B0BF2A7DCDF3775ED739CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeeCircle.app/TeeCircle";
+			};
+			name = Release;
+		};
+		77BB9217AB5FFB24B557EB76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeeCircle/TeeCircle.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircle/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeeCircle;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app;
+				PRODUCT_NAME = TeeCircle;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA26580684760950BC05298E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TeeCircle;
+			};
+			name = Release;
+		};
+		B24A41EC4439E61981C6A495 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeeCircle.app/TeeCircle";
+			};
+			name = Debug;
+		};
+		F3F5CB784FAAEA7384647A2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TeeCircleWidgets/TeeCircleWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircleWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.widgets;
+				PRODUCT_NAME = TeeCircleWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FFA2A308EA6B6C81057FE062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TeeCircleMessages/TeeCircleMessages.entitlements;
+				CURRENT_PROJECT_VERSION = 10;
+				INFOPLIST_FILE = TeeCircleMessages/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teecircle.app.messages;
+				PRODUCT_NAME = TeeCircleMessages;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01315EB8FB2CA06DEB818CCF /* Build configuration list for PBXNativeTarget "TeeCircleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55E9BD9AED2A4F4B1B3866A1 /* Debug */,
+				AA26580684760950BC05298E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		487F7CA6BA84F44E11876F99 /* Build configuration list for PBXNativeTarget "TeeCircleWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3F5CB784FAAEA7384647A2D /* Debug */,
+				0F4C38912C49682AF66E78E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		541F07BCFCD57239218BED7F /* Build configuration list for PBXNativeTarget "TeeCircleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24A41EC4439E61981C6A495 /* Debug */,
+				73B0BF2A7DCDF3775ED739CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8B63C728E1D69C467FE3EE3E /* Build configuration list for PBXNativeTarget "TeeCircle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D092F174A26795546DBAD59 /* Debug */,
+				77BB9217AB5FFB24B557EB76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9ACEF68ECAD4BF019AFD4941 /* Build configuration list for PBXProject "TeeCircle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16F40BFE403F7A0680CED2AD /* Debug */,
+				0D940A6E9F450AE6D7A26467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D613252A41CD71FCBAE53B16 /* Build configuration list for PBXNativeTarget "TeeCircleMessages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA2A308EA6B6C81057FE062 /* Debug */,
+				4921AB4E900810CC8ABAF46D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4DE7F1FAEBC3A0129F1C9CBC /* XCLocalSwiftPackageReference "Packages/TeeCircleKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TeeCircleKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2BB163D904989A944CA42B41 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.43.0;
+			};
+		};
+		BBDC6F20305424C396C16480 /* XCRemoteSwiftPackageReference "posthog-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PostHog/posthog-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		E8B45A514FA8EE98E7AF5E56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		F9AEECD9E96BCA4E2BA71D49 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		030690BBB7434BF7A72346BB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8B45A514FA8EE98E7AF5E56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		0630F4851A6D8FA39306A767 /* TeeCircleActivities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleActivities;
+		};
+		068ECA501887C599CC6885C3 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9AEECD9E96BCA4E2BA71D49 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		39048ECF317777F046DD421D /* TeeCircleDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDesign;
+		};
+		43188776866E0198D217D7EE /* TeeCircleDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDomain;
+		};
+		4A6EC9C2988E3C07E85C6BB8 /* TeeCircleActivities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleActivities;
+		};
+		52F13A96D6A2505E1C068DB2 /* TeeCircleAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleAPI;
+		};
+		828A425D6733DF47A19B8E59 /* TeeCircleDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDomain;
+		};
+		8411B36CB6011BA5CB2EB199 /* PostHog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBDC6F20305424C396C16480 /* XCRemoteSwiftPackageReference "posthog-ios" */;
+			productName = PostHog;
+		};
+		9D0DE9EAEF8BB79A2AEEE6B1 /* TeeCircleAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleAPI;
+		};
+		B0CFEBE9E51B7540930635BE /* TeeCircleScoring */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleScoring;
+		};
+		B2A11A23CD1F18FCE53F2802 /* TeeCircleScoring */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleScoring;
+		};
+		B6232F804B67664700F7F23F /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8B45A514FA8EE98E7AF5E56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		B662C764FD44720E6870C601 /* TeeCircleDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDesign;
+		};
+		C5F4A771BBBD6FB112F2EAF9 /* TeeCircleDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDomain;
+		};
+		CF516D882DF4F58F9A66B129 /* TeeCircleDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDesign;
+		};
+		F146973F39EC08E5A93ECF3D /* TeeCircleDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleDomain;
+		};
+		F5C38562D9DB2A6A013193FA /* TeeCircleAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TeeCircleAPI;
+		};
+		F76560B4010E924A8B522E9D /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BB163D904989A944CA42B41 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DFBDEF2716958F1E6D9FFB26 /* Project object */;
+}

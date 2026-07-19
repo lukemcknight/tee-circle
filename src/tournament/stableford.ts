@@ -20,7 +20,7 @@ export function computeStableford(
         (sum, h) =>
           sum +
           stablefordPointsForHole(
-            netStrokesForHole(h, p.courseHandicap, scoring),
+            netStrokesForHole(h, p.courseHandicap, scoring, p.holeCount ?? 18),
             h.par,
           ),
         0,

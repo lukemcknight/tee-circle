@@ -5,11 +5,16 @@ export type SkinsHoleResult =
   | { hole: number; winnerId: string; skins: number }
   | { hole: number; winnerId: null; carried: number };
 
-export type SkinsResult = { holes: SkinsHoleResult[]; standings: PlayerStanding[] };
+export type SkinsResult = {
+  holes: SkinsHoleResult[];
+  standings: PlayerStanding[];
+  carry: number;
+};
 
 export function computeSkins(
   players: PlayerRound[],
   scoring: Scoring = 'net',
+  initialCarry = 1,
 ): SkinsResult {
   const holeNumbers = [
     ...new Set(players.flatMap((p) => p.holes.map((h) => h.hole))),
@@ -21,14 +26,16 @@ export function computeSkins(
   });
 
   const holes: SkinsHoleResult[] = [];
-  let carry = 1; // skins at stake on the current hole (1 + any carried)
+  let carry = initialCarry; // skins at stake on the current hole
 
   for (const holeNum of holeNumbers) {
     const nets = players.map((p) => {
       const h = p.holes.find((x) => x.hole === holeNum);
       return {
         playerId: p.playerId,
-        net: h ? netStrokesForHole(h, p.courseHandicap, scoring) : null,
+        net: h
+          ? netStrokesForHole(h, p.courseHandicap, scoring, p.holeCount ?? 18)
+          : null,
       };
     });
 
@@ -53,5 +60,5 @@ export function computeSkins(
     .map((p) => ({ playerId: p.playerId, value: won[p.playerId] }))
     .sort((a, b) => b.value - a.value);
 
-  return { holes, standings };
+  return { holes, standings, carry };
 }

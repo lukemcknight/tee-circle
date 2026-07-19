@@ -1,0 +1,12 @@
+DEVELOPMENT_TEAM = 9974PM5L6M
+IPHONEOS_DEPLOYMENT_TARGET = 16.4
+SWIFT_VERSION = 6.0
+APP_GROUP_IDENTIFIER = group.com.teecircle.app.shared
+KEYCHAIN_GROUP_IDENTIFIER = $(AppIdentifierPrefix)com.teecircle.app.shared-auth
+TEE_WEB_HOST = teecircle.vercel.app
+TEE_SUPABASE_HOST = zgrbwhnfuxgvkwtgrncu.supabase.co
+TEE_POSTHOG_HOST = us.i.posthog.com
+TEE_REVENUECAT_PRODUCT_ID = com.teecircle.app.trip_unlock_2999
+TEE_GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.350395562792-439vqodi4elipemhtr0a5vk45e2kk086
+
+#include? "Secrets.xcconfig"

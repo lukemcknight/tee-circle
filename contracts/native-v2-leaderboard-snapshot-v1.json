@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "tripId": "trip-pinehurst-2026",
+  "revision": 42,
+  "status": "live",
+  "primaryFormat": "stableford",
+  "currentRound": {
+    "publicId": "round-no-2",
+    "name": "Pinehurst No. 2",
+    "throughHole": 12
+  },
+  "boards": [
+    {
+      "format": "stableford",
+      "scoring": "net",
+      "standings": [
+        {
+          "playerId": "seat-sean",
+          "displayName": "Sean",
+          "rank": 1,
+          "value": 28,
+          "tied": false,
+          "holesPlayed": 12
+        },
+        {
+          "playerId": "seat-luke",
+          "displayName": "Luke",
+          "rank": 2,
+          "value": 26,
+          "tied": true,
+          "holesPlayed": 12
+        },
+        {
+          "playerId": "seat-maya",
+          "displayName": "Maya",
+          "rank": 2,
+          "value": 26,
+          "tied": true,
+          "holesPlayed": 11
+        }
+      ]
+    },
+    {
+      "format": "skins",
+      "scoring": "net",
+      "standings": [
+        {
+          "playerId": "seat-luke",
+          "displayName": "Luke",
+          "rank": 1,
+          "value": 5,
+          "tied": false,
+          "holesPlayed": 12
+        }
+      ]
+    }
+  ],
+  "moment": {
+    "kind": "lead_change",
+    "summary": "Sean took the lead through 12"
+  },
+  "generatedAt": "2026-07-13T18:42:10.125Z"
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": [
+    "api/**/*.ts",
+    "server/**/*.ts",
+    "server/**/*.d.ts",
+    "src/liveTrip/**/*.ts"
+  ]
+}
