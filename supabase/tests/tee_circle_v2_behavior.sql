@@ -216,6 +216,18 @@ begin
     raise exception 'sanitized roster bootstrap contract failed: %', v_bootstrap;
   end if;
 
+  -- Trip player 2's seat is still unclaimed here (claimed_user_id is null;
+  -- the invite claim below has not run yet). Every roster entry's
+  -- isCurrentUser must still be a JSON boolean, never SQL NULL, or the iOS
+  -- client's non-optional Bool decode fails.
+  if exists (
+       select 1
+       from jsonb_array_elements(v_bootstrap#>'{data,roster}') seat
+       where jsonb_typeof(seat->'isCurrentUser') <> 'boolean'
+     ) then
+    raise exception 'roster isCurrentUser was not a JSON boolean for every seat (unclaimed seat leaked SQL null): %', v_bootstrap;
+  end if;
+
   perform set_config(
     'request.jwt.claim.sub',
     '91000000-0000-4000-8000-000000000005',
@@ -444,6 +456,54 @@ begin
   end if;
 end
 $$;
+
+-- Legacy rounds allow a null creator (pre-account or orphaned production
+-- rows; public.rounds.created_by is nullable). A caller who only responded
+-- to the round (not created it) must still see JSON booleans for
+-- isCreator/canConvert, never SQL NULL from a direct `= v_user_id` compare.
+insert into public.rounds (
+  id, course_name, tee_time, holes, walk_ride, created_by
+) values (
+  '94900000-0000-4000-8000-000000000001', 'Orphaned Legacy Club',
+  '2026-07-20T09:00:00-04:00', 9, 'walk', null
+);
+insert into public.round_responses (round_id, user_id, response) values (
+  '94900000-0000-4000-8000-000000000001',
+  '91000000-0000-4000-8000-000000000004',
+  'yes'
+);
+
+set local role authenticated;
+select set_config('request.jwt.claim.sub', '91000000-0000-4000-8000-000000000004', true);
+do $$
+declare
+  v_rounds jsonb;
+  v_round jsonb;
+begin
+  v_rounds := public.get_legacy_rounds_v1();
+  if v_rounds ? 'error' then
+    raise exception 'legacy rounds read failed: %', v_rounds;
+  end if;
+  select seat into v_round
+  from jsonb_array_elements(v_rounds#>'{data,rounds}') seat
+  where seat->>'roundId' = '94900000-0000-4000-8000-000000000001';
+  if v_round is null then
+    raise exception 'orphaned legacy round missing from responder view: %', v_rounds;
+  end if;
+  if jsonb_typeof(v_round->'isCreator') <> 'boolean'
+     or jsonb_typeof(v_round->'canConvert') <> 'boolean' then
+    raise exception 'legacy round isCreator/canConvert was not a JSON boolean for a null creator: %', v_round;
+  end if;
+  if v_round->>'isCreator' <> 'false' or v_round->>'canConvert' <> 'false' then
+    raise exception 'non-creator responder incorrectly saw isCreator/canConvert true: %', v_round;
+  end if;
+end
+$$;
+reset role;
+-- request.jwt.claim.sub is transaction-local (set_config ... true) and
+-- outlives the role reset above; restore the trip owner identity the
+-- following blocks expect.
+select set_config('request.jwt.claim.sub', '91000000-0000-4000-8000-000000000001', true);
 
 -- Ownership blocks account deletion until transfer. The database FK remains a
 -- final defense even if an old deletion path skips the blocker command.
