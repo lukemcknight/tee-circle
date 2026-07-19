@@ -23,7 +23,7 @@
 ### Task 1: Park the tournament WIP on `trip-tournament-engines`
 
 **Files:**
-- Modify: `.gitignore` (append 3 junk entries)
+- Modify: `.gitignore` (append 4 junk entries)
 - Commit: all remaining dirty/untracked files on branch `trip-tournament-engines`
 
 **Interfaces:**

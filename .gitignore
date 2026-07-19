@@ -55,3 +55,6 @@ supabase/.temp/
 
 # Local production safety snapshots (may contain private app data)
 /supabase/.local-backups/
+
+# parked-branch residue (native app lives on trip-tournament-engines; contains Secrets.xcconfig)
+/native/

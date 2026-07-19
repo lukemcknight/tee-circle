@@ -12,11 +12,15 @@ Execute during Phase B, after P0/P1 fixes land. Companion to
 Declare (based on what the app actually collects):
 - [ ] Contact Info: email address (account) — linked to identity, app functionality
 - [ ] Identifiers: user ID — linked to identity, app functionality
-- [ ] Usage Data: product interaction (PostHog analytics) — not linked (verify
-      PostHog config before declaring "not linked"; if user IDs are sent, declare linked)
+- [ ] Usage Data: product interaction (PostHog analytics) — linked to identity
+      (AuthContext.tsx:181 calls posthog.identify(user.id, { email }); email is
+      sent too. If Phase B removes the identify call, downgrade to not-linked.)
 - [ ] Location: precise location (course search / "near me") — app functionality,
       not linked, not tracking
-- [ ] User Content: photos only if avatar upload ships in 1.5.0 (check ProfileScreen)
+- [ ] User Content: none — no avatar upload exists (initials-only avatar, no
+      image-picker dependency); Phase B may optionally remove the unused
+      `NSPhotoLibraryUsageDescription`/`NSCameraUsageDescription` strings from
+      app.json.
 - [ ] "Data used to track you": NONE (no ad SDKs; keep it that way)
 
 ## 3. Screenshots (capture on iPhone 16 Pro Max simulator, 6.9", 1320×2868)
