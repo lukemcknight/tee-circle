@@ -46,3 +46,12 @@ yarn-error.*
 
 AuthKey.p8
 
+
+# tool/session junk
+.playwright-mcp/
+supabase/.temp/
+*.kra
+.claude/settings.local.json
+
+# Local production safety snapshots (may contain private app data)
+/supabase/.local-backups/
