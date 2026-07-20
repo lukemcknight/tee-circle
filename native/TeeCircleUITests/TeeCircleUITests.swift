@@ -32,8 +32,11 @@ final class TeeCircleUITests: XCTestCase {
         enter("ab", into: usernameField, in: app)
         XCTAssertFalse(submit.isEnabled)
 
+        // Don't dismiss via the keyboard's Done key here: the username field's
+        // onSubmit already saves once the form is valid (ProfileSetupView.swift:108),
+        // so tapping Done at this point submits early and tears down the gate
+        // before this test gets to make its own explicit assertions/tap below.
         usernameField.typeText("cdef")
-        dismissKeyboard(in: app)
         capture(app, named: "profile-setup-filled")
         XCTAssertTrue(submit.isEnabled)
 
