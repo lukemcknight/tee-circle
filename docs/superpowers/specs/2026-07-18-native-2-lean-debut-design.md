@@ -43,6 +43,8 @@ The app has never run interactively; no other milestone starts until it does.
 
 - Replace the SDK-rendered `GoogleSignInButton` (button-inside-a-button today, `AuthenticationView.swift:181-197`) with a custom 52pt/14pt-radius button matching the Apple button's geometry, per Google brand guidelines (G logo + "Continue with Google").
 - Add copy to the email form making clear the six-digit code signs you up: new accounts are created automatically (`shouldCreateUser: true` is already the behavior).
+- **Copy rule (owner directive, 2026-07-20):** user-facing strings never reference
+  internal versioning ("TeeCircle 1.0", "2.0", "legacy"). One continuous app.
 
 ## 6. Milestone 2 — lean-scope gaps
 

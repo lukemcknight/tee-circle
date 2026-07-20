@@ -296,7 +296,7 @@ struct HomeView: View {
     private var legacySection: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .firstTextBaseline) {
-                sectionHeader("ORIGINAL ROUNDS", detail: "From TeeCircle 1.0")
+                sectionHeader("ROUND HISTORY", detail: "Rounds you’ve already played")
                 Spacer()
                 Button("See all") { store.path.append(.legacyRounds) }
                     .font(.caption.weight(.bold))
