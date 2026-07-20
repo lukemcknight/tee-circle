@@ -14,6 +14,7 @@ struct LegacyTripSetupView: View {
     @State private var handicapText: [String: String] = [:]
     @State private var didLoad = false
     @State private var isSaving = false
+    @FocusState private var focusedHandicapPlayerID: String?
 
     var body: some View {
         NavigationStack {
@@ -22,56 +23,88 @@ struct LegacyTripSetupView: View {
                 if let experience = store.trip(id: tripID),
                    let round = experience.rounds.first(where: { $0.id == roundID })
                 {
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 20) {
-                            VStack(alignment: .leading, spacing: 7) {
-                                BroadcastStatusPill(title: "Finish copy")
-                                Text("Add the scoring card")
-                                    .font(.system(size: 31, weight: .black, design: .rounded))
-                                Text("The original round did not store par and stroke indexes. Choose a saved card or enter them once; TeeCircle copies them into this new trip.")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-
-                            savedCards(round: round)
-                            if selectedCourseCardID == nil {
-                                manualCard(round: round)
-                            }
-                            handicaps(experience)
-
-                            Button {
-                                isSaving = true
-                                Task {
-                                    let finished = await store.finishLegacyConversionProduction(
-                                        tripID: tripID,
-                                        roundID: roundID,
-                                        savedCourseCardID: selectedCourseCardID,
-                                        courseName: courseName,
-                                        holes: holes,
-                                        handicaps: parsedHandicaps
-                                    )
-                                    isSaving = false
-                                    if finished { dismiss() }
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 20) {
+                                VStack(alignment: .leading, spacing: 7) {
+                                    BroadcastStatusPill(title: "Finish copy")
+                                    Text("Add the scoring card")
+                                        .font(.system(size: 31, weight: .black, design: .rounded))
+                                    Text("The original round did not store par and stroke indexes. Choose a saved card or enter them once; TeeCircle copies them into this new trip.")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
                                 }
-                            } label: {
-                                HStack {
-                                    Text(isSaving ? "Finishing trip…" : "Finish trip setup")
-                                    Image(systemName: "checkmark.seal.fill")
+
+                                savedCards(round: round)
+                                if selectedCourseCardID == nil {
+                                    manualCard(round: round)
                                 }
-                                .font(.headline.weight(.bold))
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 54)
-                                .foregroundStyle(TeeCircleBrand.forest)
-                                .background(TeeCircleBrand.signal, in: RoundedRectangle(cornerRadius: 17))
+                                handicaps(experience)
+
+                                Button {
+                                    isSaving = true
+                                    Task {
+                                        let finished = await store.finishLegacyConversionProduction(
+                                            tripID: tripID,
+                                            roundID: roundID,
+                                            savedCourseCardID: selectedCourseCardID,
+                                            courseName: courseName,
+                                            holes: holes,
+                                            handicaps: parsedHandicaps
+                                        )
+                                        isSaving = false
+                                        if finished { dismiss() }
+                                    }
+                                } label: {
+                                    HStack {
+                                        Text(isSaving ? "Finishing trip…" : "Finish trip setup")
+                                        Image(systemName: "checkmark.seal.fill")
+                                    }
+                                    .font(.headline.weight(.bold))
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 54)
+                                    .foregroundStyle(TeeCircleBrand.forest)
+                                    .background(TeeCircleBrand.signal, in: RoundedRectangle(cornerRadius: 17))
+                                }
+                                .disabled(!canFinish(experience, round: round) || isSaving)
+                                .opacity(canFinish(experience, round: round) ? 1 : 0.45)
+                                .accessibilityIdentifier("legacy.finishSetup")
+
+                                // The handicap rows above fit on-screen with room
+                                // to spare when the keyboard is dismissed, so the
+                                // scroll view has no natural slack to scroll
+                                // through. Once the keyboard covers roughly half
+                                // the screen, any touch that starts near the
+                                // bottom (where a swipe or a real drag-to-scroll
+                                // would normally begin) lands on the keyboard
+                                // itself and never reaches the scroll view, so no
+                                // amount of swiping can reveal the later rows on
+                                // its own. ScrollViewReader also has no notion of
+                                // the keyboard overlay, so anchoring the
+                                // bottom-most content at the visible "bottom" is
+                                // unreliable (that "bottom" is the full screen,
+                                // keyboard included). Instead, reserve
+                                // keyboard-sized scroll room and pin the
+                                // handicaps section's own top to the top of the
+                                // viewport as soon as any handicap field is
+                                // focused, pushing the whole (short)
+                                // handicaps+button block safely above the
+                                // keyboard regardless of its exact height, before
+                                // the next field is tapped.
+                                Color.clear
+                                    .frame(height: focusedHandicapPlayerID != nil ? 320 : 0)
                             }
-                            .disabled(!canFinish(experience, round: round) || isSaving)
-                            .opacity(canFinish(experience, round: round) ? 1 : 0.45)
-                            .accessibilityIdentifier("legacy.finishSetup")
+                            .padding(18)
+                            .padding(.bottom, 30)
                         }
-                        .padding(18)
-                        .padding(.bottom, 30)
+                        .accessibilityIdentifier("round.formScroll")
+                        .scrollDismissesKeyboard(.interactively)
+                        .onAppear { loadIfNeeded(experience, round: round) }
+                        .onChange(of: focusedHandicapPlayerID) { newValue in
+                            guard newValue != nil else { return }
+                            withAnimation { proxy.scrollTo("legacy.handicapsRevealAnchor", anchor: .top) }
+                        }
                     }
-                    .onAppear { loadIfNeeded(experience, round: round) }
                 } else {
                     TeeCircleUnavailableState(
                         title: "Setup unavailable",
@@ -168,6 +201,7 @@ struct LegacyTripSetupView: View {
     private func handicaps(_ experience: LocalTripExperience) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             sectionLabel("PLAYING HANDICAPS")
+                .id("legacy.handicapsRevealAnchor")
             Text("Net Stableford needs a snapshot for every active player. These values stay attached to this trip.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -180,6 +214,7 @@ struct LegacyTripSetupView: View {
                         .multilineTextAlignment(.trailing)
                         .frame(width: 76)
                         .textFieldStyle(.roundedBorder)
+                        .focused($focusedHandicapPlayerID, equals: player.id)
                         .accessibilityLabel("Handicap for \(player.displayName)")
                         .accessibilityIdentifier("legacy.handicap.\(player.id)")
                 }
