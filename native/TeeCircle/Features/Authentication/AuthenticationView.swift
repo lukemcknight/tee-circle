@@ -1,5 +1,4 @@
 import AuthenticationServices
-import GoogleSignInSwift
 import SwiftUI
 import UIKit
 
@@ -179,21 +178,10 @@ struct AuthenticationView: View {
                 .accessibilityIdentifier("auth.apple")
 
                 if googleIsConfigured {
-                    GoogleSignInButton(
-                        scheme: .light,
-                        style: .wide,
-                        state: isSubmitting ? .disabled : .normal,
+                    GoogleSignInBrandButton(
+                        isEnabled: !isSubmitting,
                         action: beginGoogleSignIn
                     )
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 6)
-                    .background(Color.white, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                            .stroke(Color.white.opacity(0.16))
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    .accessibilityIdentifier("auth.google")
                 }
             }
 
@@ -275,6 +263,14 @@ struct AuthenticationView: View {
             }
 
             emailModeControl
+
+            if !usePassword {
+                Text("New here? The emailed code signs you up automatically — no password needed.")
+                    .font(.footnote)
+                    .foregroundStyle(TeeCircleBrand.ink.opacity(0.6))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityIdentifier("auth.signupHint")
+            }
 
             if otpSent && !usePassword {
                 otpRecipient

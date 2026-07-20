@@ -74,6 +74,7 @@
 		CB78149CDBC3AE1836A2E93A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F764B03E6BCA29DCB76DB43E /* MessagesViewController.swift */; };
 		CDE844847418562E6DAB5008 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = CF516D882DF4F58F9A66B129 /* TeeCircleDesign */; };
 		D53A3BB07DAA40635081BE60 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1375200A0E75705C2ABD7B12 /* PrivacyInfo.xcprivacy */; };
+		D57892A0BF9415FC951C8A1B /* GoogleSignInBrandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC667273DCCBF102A50E05 /* GoogleSignInBrandButton.swift */; };
 		D5FE920A282F7E9193D536F4 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 43188776866E0198D217D7EE /* TeeCircleDomain */; };
 		D6E853DD9AAFDB4A50B845BC /* MessagesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7004C680E5E250E13568B1C /* MessagesModels.swift */; };
 		DFEBAFA893613AF57509E45C /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6167A054B516BD3B1389BE5 /* ProfileSetupView.swift */; };
@@ -159,6 +160,7 @@
 		28E19D22584AB55F588ECD47 /* InviteCredentialVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCredentialVault.swift; sourceTree = "<group>"; };
 		29719B09C19288E9229A2E06 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyTripSetupView.swift; sourceTree = "<group>"; };
+		33BC667273DCCBF102A50E05 /* GoogleSignInBrandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInBrandButton.swift; sourceTree = "<group>"; };
 		35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleStore.swift; sourceTree = "<group>"; };
 		3BE722E2FA3B7976E12F0913 /* TeeCircleLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleLiveActivityWidget.swift; sourceTree = "<group>"; };
 		45A71DFE3959B71612B52B61 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				24B5A7B41170CA62163C65FB /* AuthenticationView.swift */,
+				33BC667273DCCBF102A50E05 /* GoogleSignInBrandButton.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 				3F83A7843D25CFF2C2780700 /* GolferDetailView.swift in Sources */,
 				63CA6444EDCE80B21EC1BBE8 /* GolferSummary.swift in Sources */,
 				27FAA15C5C8FDE2930319C68 /* GolfersView.swift in Sources */,
+				D57892A0BF9415FC951C8A1B /* GoogleSignInBrandButton.swift in Sources */,
 				E034DE74A8A565084A09E228 /* HomeView.swift in Sources */,
 				559C208E1F689E8EE31411DE /* InviteClaimView.swift in Sources */,
 				BCC92335B1FA51935D253E82 /* InviteCredentialVault.swift in Sources */,
