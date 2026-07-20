@@ -7,6 +7,12 @@ struct ProfileView: View {
     @State private var showDeleteConfirmation = false
     @State private var isEditingIdentity = false
 
+    private var appVersionText: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
+        return "\(version) (\(build))"
+    }
+
     var body: some View {
         ZStack {
             BroadcastBackground()
@@ -71,9 +77,9 @@ struct ProfileView: View {
 
                 Section {
                     HStack {
-                        Text("Native release")
+                        Text("Version")
                         Spacer()
-                        Text("2.0.0 (10)").foregroundStyle(.secondary)
+                        Text(appVersionText).foregroundStyle(.secondary)
                     }
                 }
             }
