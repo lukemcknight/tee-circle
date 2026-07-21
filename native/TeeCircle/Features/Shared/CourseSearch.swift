@@ -20,6 +20,14 @@ final class CourseSearchController: ObservableObject {
         client = trimmed.isEmpty ? nil : GolfCourseSearchClient(apiKey: trimmed)
     }
 
+    /// Fixture and UI-test runs (`AppConfiguration.useMockData`) must never
+    /// fire live, billed Places requests even once a real key is configured.
+    /// Both create-flow call sites route through this so the fixture switch
+    /// stays identical everywhere and is unit-testable without a view.
+    static func effectiveKey(configuredKey: String, useMockData: Bool) -> String {
+        useMockData ? "" : configuredKey
+    }
+
     func update(query: String) {
         searchTask?.cancel()
         guard let client else { return }

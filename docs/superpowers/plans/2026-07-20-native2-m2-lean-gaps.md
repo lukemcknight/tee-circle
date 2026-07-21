@@ -2310,6 +2310,7 @@ The owner runs these in one later session. Until then, everything above is fully
   3. Put it in `native/Config/Secrets.xcconfig` as `TEE_GOOGLE_PLACES_API_KEY = <key>` (git-ignored; never in eas.json, never committed — public repo).
   4. Build to a device/simulator, open New round, type 3+ letters of a real course, confirm suggestions appear and selecting one fills the field. Delete the key temporarily and confirm the field silently reverts to free text.
 - [ ] **Apply migrations to production (SQL editor paste, same routine as before), in timestamp order:**
+  0. `supabase/migrations/20260719120000_fix_bootstrap_roster_null_is_current_user.sql` — may already be applied during bring-up (2026-07-19 session) — it is create-or-replace idempotent, safe to re-run; verify with: `select proname from pg_proc join pg_namespace n on n.oid = pronamespace where proname in ('get_trip_bootstrap_unfiltered_v1');` returning a row whose body coalesces isCurrentUser (or simply re-run the file).
   1. `supabase/migrations/20260720130000_tee_circle_v2_account_deletion_finalizer.sql`
   2. `supabase/migrations/20260720140000_tee_circle_v2_decline_trip_seat.sql`
   - Leave `tee_internal.runtime_flags` alone: `purchases_required` false, `live_activity_pushes_enabled` false, `native_writes_enabled` true, `public_previews_enabled` as currently set.

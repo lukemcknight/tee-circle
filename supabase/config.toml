@@ -42,6 +42,9 @@ verify_jwt = true
 [functions.claim-trip-purchase-v1]
 verify_jwt = true
 
+[functions.delete-account-v1]
+verify_jwt = true
+
 [functions.recompute-trip-snapshot-v1]
 verify_jwt = false
 

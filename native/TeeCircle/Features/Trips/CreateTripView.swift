@@ -26,7 +26,13 @@ struct CreateTripView: View {
     @State private var isCreating = false
     @State private var didSeedCaptain = false
     @StateObject private var courseSearch = CourseSearchController(
-        apiKey: AppConfiguration.load().googlePlacesAPIKey
+        apiKey: {
+            let configuration = AppConfiguration.load()
+            return CourseSearchController.effectiveKey(
+                configuredKey: configuration.googlePlacesAPIKey,
+                useMockData: configuration.useMockData
+            )
+        }()
     )
     @FocusState private var focusedCourseRoundID: UUID?
 
@@ -62,6 +68,7 @@ struct CreateTripView: View {
                 draft.playerNames[0] = store.currentDisplayName
             }
         }
+        .onChange(of: focusedCourseRoundID) { _ in courseSearch.dismiss() }
     }
 
     private var progressHeader: some View {

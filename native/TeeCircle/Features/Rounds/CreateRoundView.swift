@@ -17,7 +17,13 @@ struct CreateRoundView: View {
     @State private var guestNames = [""]
     @State private var isCreating = false
     @StateObject private var courseSearch = CourseSearchController(
-        apiKey: AppConfiguration.load().googlePlacesAPIKey
+        apiKey: {
+            let configuration = AppConfiguration.load()
+            return CourseSearchController.effectiveKey(
+                configuredKey: configuration.googlePlacesAPIKey,
+                useMockData: configuration.useMockData
+            )
+        }()
     )
     @State private var suppressCourseSearch = false
 

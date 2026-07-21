@@ -15,7 +15,7 @@ struct LegacyRoundsView: View {
                         Text("Your original rounds")
                             .font(.system(size: 34, weight: .black, design: .rounded))
                             .tracking(-1.2)
-                        Text("Nothing here is changed or deleted. Copy a round into a new trip when you want native scoring and Messages sharing.")
+                        Text("Nothing here is changed or deleted. Copy a round into a new trip when you want live scoring and Messages sharing.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
