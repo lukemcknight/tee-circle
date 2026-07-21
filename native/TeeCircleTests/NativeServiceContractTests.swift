@@ -84,7 +84,16 @@ final class NativeServiceContractTests: XCTestCase {
         XCTAssertEqual(TeeCircleEndpointCatalog.recordHoleScore, "/functions/v1/record-score-v1")
         XCTAssertEqual(TeeCircleEndpointCatalog.claimPurchase, "/functions/v1/claim-trip-purchase-v1")
         XCTAssertEqual(TeeCircleEndpointCatalog.previewInvite, "/functions/v1/preview-trip-v1")
-        XCTAssertEqual(TeeCircleEndpointCatalog.unsupportedCapabilities, [.deleteAccount])
+        XCTAssertEqual(TeeCircleEndpointCatalog.deleteAccount, "/functions/v1/delete-account-v1")
+        XCTAssertTrue(TeeCircleEndpointCatalog.unsupportedCapabilities.isEmpty)
+    }
+
+    func testAccountDeletionResultDecodesEdgePayload() throws {
+        let result = try JSONDecoder().decode(
+            AccountDeletionResultV1.self,
+            from: Data(#"{"deleted":true}"#.utf8)
+        )
+        XCTAssertTrue(result.deleted)
     }
 
     func testInviteMetadataCannotCarryBearerSecrets() throws {

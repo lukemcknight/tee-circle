@@ -1107,6 +1107,47 @@ extension TeeCircleStore {
         catch { report(error); return nil }
     }
 
+    /// Runs the server-side deletion, then clears all local state. The server
+    /// account no longer exists on success, so server-bound sign-out calls are
+    /// best-effort only.
+    func deleteAccountProduction() async -> Bool {
+        guard let production else {
+            reportConfigurationError()
+            return false
+        }
+        do {
+            let result = try await production.repository.deleteAccount()
+            guard result.deleted else {
+                errorMessage = "The account could not be deleted. Try again."
+                return false
+            }
+        } catch {
+            report(error)
+            return false
+        }
+        await production.realtime.stopAll()
+        try? await production.sharedStore.revokeAllLocally()
+        await production.pendingScores.removeAll()
+        await production.liveActivity.endAll()
+        await production.purchases.clearRevenueCatUser()
+        try? await production.auth.signOut()
+        production.analytics.reset()
+        isAuthenticated = false
+        currentDisplayName = "Player"
+        currentUsername = nil
+        needsProfileSetup = nil
+        trips = []
+        legacyRounds = []
+        courseCards = []
+        pendingScoreKeys = []
+        inviteCredentials = [:]
+        inviteMetadataByTrip = [:]
+        path.removeAll()
+        golfersPath.removeAll()
+        selectedTab = .rounds
+        return true
+    }
+
     // MARK: Helpers
 
     private func endLiveActivityIfCanonicalFinal(_ experience: LocalTripExperience) async {

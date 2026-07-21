@@ -606,6 +606,10 @@ struct AccountDeletionBlockersV1: Codable, Equatable, Sendable {
     let ownedTrips: [OwnedTripDeletionBlockerV1]
 }
 
+struct AccountDeletionResultV1: Codable, Equatable, Hashable, Sendable {
+    let deleted: Bool
+}
+
 struct PublicPreviewRoundV1: Codable, Equatable, Hashable, Identifiable, Sendable {
     var id: String { publicId }
     let publicId: String

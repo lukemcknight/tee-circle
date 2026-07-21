@@ -6,6 +6,7 @@ struct ProfileView: View {
     @State private var notificationsEnabled = true
     @State private var showDeleteConfirmation = false
     @State private var isEditingIdentity = false
+    @State private var isDeletingAccount = false
 
     private var appVersionText: String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
@@ -70,6 +71,7 @@ struct ProfileView: View {
                     Button("Sign out") { store.signOut() }
                         .accessibilityIdentifier("account.signOut")
                     Button("Delete account", role: .destructive) { showDeleteConfirmation = true }
+                        .disabled(isDeletingAccount)
                         .accessibilityIdentifier("account.delete")
                 } footer: {
                     Text("A captain must transfer or archive an active shared trip before account deletion. Completed results remain readable by the roster.")
@@ -104,7 +106,9 @@ struct ProfileView: View {
                     Task {
                         guard let blockers = await store.accountDeletionBlockers() else { return }
                         if blockers.canDelete {
-                            store.errorMessage = "Your account is eligible for deletion. Confirming deletion requires the server-side destructive command."
+                            isDeletingAccount = true
+                            _ = await store.deleteAccountProduction()
+                            isDeletingAccount = false
                         } else {
                             let names = blockers.ownedTrips.map(\.name).joined(separator: ", ")
                             store.errorMessage = "Transfer or archive these trips first: \(names)."

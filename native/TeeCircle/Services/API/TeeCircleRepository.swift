@@ -28,6 +28,7 @@ protocol TeeCircleRepositoryProtocol: TripPurchaseRepositoryProtocol {
     func advanceTripRound(tripID: String, currentRoundID: String, expectedScoreRevision: Int, allowIncomplete: Bool) async throws -> AdvanceTripRoundResultV1
     func transferTripOwnership(tripID: String, newOwnerTripPlayerID: String) async throws -> TransferTripOwnershipResultV1
     func accountDeletionBlockers() async throws -> AccountDeletionBlockersV1
+    func deleteAccount() async throws -> AccountDeletionResultV1
     func acceptInvite(token: String, tripPlayerID: String?) async throws -> InviteAcceptanceResultV1
     func myProfile() async throws -> NativeProfileV1
     func updateMyProfile(fullName: String, username: String) async throws -> NativeProfileV1
@@ -362,6 +363,13 @@ actor TeeCircleRepository: TeeCircleRepositoryProtocol {
         try await callRPC(
             path: TeeCircleEndpointCatalog.accountDeletionBlockers,
             body: EmptyRPCArguments()
+        )
+    }
+
+    func deleteAccount() async throws -> AccountDeletionResultV1 {
+        try await callEdgeFunction(
+            path: TeeCircleEndpointCatalog.deleteAccount,
+            body: DeleteAccountArguments(schemaVersion: 1)
         )
     }
 
@@ -1096,4 +1104,8 @@ private struct ClaimPurchaseArguments: Codable, Sendable {
 private struct PreviewInviteArguments: Codable, Sendable {
     let schemaVersion: Int
     let inviteToken: String
+}
+
+private struct DeleteAccountArguments: Codable, Sendable {
+    let schemaVersion: Int
 }

@@ -45,12 +45,11 @@ enum TeeCircleEndpointCatalog {
     static let cancelPurchaseIntent = rpc("cancel_trip_purchase_intent_v1")
     static let previewInvite = "/functions/v1/preview-trip-v1"
     static let claimPurchase = "/functions/v1/claim-trip-purchase-v1"
+    static let deleteAccount = "/functions/v1/delete-account-v1"
 
     /// Deliberately explicit until additive backend commands exist. UI must hide
     /// or disable these operations rather than falling back to direct table writes.
-    static let unsupportedCapabilities: Set<UnsupportedServerCapability> = [
-        .deleteAccount,
-    ]
+    static let unsupportedCapabilities: Set<UnsupportedServerCapability> = []
 
     private static func rpc(_ function: String) -> String {
         "/rest/v1/rpc/\(function)"
