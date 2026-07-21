@@ -14,6 +14,7 @@ struct LegacyTripSetupView: View {
     @State private var handicapText: [String: String] = [:]
     @State private var didLoad = false
     @State private var isSaving = false
+    @State private var keyboardOverlapHeight: CGFloat = 0
     @FocusState private var focusedHandicapPlayerID: String?
 
     var body: some View {
@@ -70,29 +71,18 @@ struct LegacyTripSetupView: View {
                                 .opacity(canFinish(experience, round: round) ? 1 : 0.45)
                                 .accessibilityIdentifier("legacy.finishSetup")
 
-                                // The handicap rows above fit on-screen with room
-                                // to spare when the keyboard is dismissed, so the
-                                // scroll view has no natural slack to scroll
-                                // through. Once the keyboard covers roughly half
-                                // the screen, any touch that starts near the
-                                // bottom (where a swipe or a real drag-to-scroll
-                                // would normally begin) lands on the keyboard
-                                // itself and never reaches the scroll view, so no
-                                // amount of swiping can reveal the later rows on
-                                // its own. ScrollViewReader also has no notion of
-                                // the keyboard overlay, so anchoring the
-                                // bottom-most content at the visible "bottom" is
-                                // unreliable (that "bottom" is the full screen,
-                                // keyboard included). Instead, reserve
-                                // keyboard-sized scroll room and pin the
-                                // handicaps section's own top to the top of the
-                                // viewport as soon as any handicap field is
-                                // focused, pushing the whole (short)
-                                // handicaps+button block safely above the
-                                // keyboard regardless of its exact height, before
-                                // the next field is tapped.
+                                // The handicap rows fit on-screen with the
+                                // keyboard dismissed, so the scroll view has no
+                                // natural slack; once the keyboard appears,
+                                // touches near the bottom land on the keyboard
+                                // and can never scroll the later rows into view.
+                                // Reserve keyboard-sized scroll room (measured
+                                // from the keyboard frame notifications, not
+                                // guessed) and pin the handicaps section's top to
+                                // the viewport top while any handicap field is
+                                // focused.
                                 Color.clear
-                                    .frame(height: focusedHandicapPlayerID != nil ? 320 : 0)
+                                    .frame(height: focusedHandicapPlayerID != nil ? keyboardOverlapHeight : 0)
                             }
                             .padding(18)
                             .padding(.bottom, 30)
@@ -103,6 +93,21 @@ struct LegacyTripSetupView: View {
                         .onChange(of: focusedHandicapPlayerID) { newValue in
                             guard newValue != nil else { return }
                             withAnimation { proxy.scrollTo("legacy.handicapsRevealAnchor", anchor: .top) }
+                        }
+                        .onChange(of: keyboardOverlapHeight) { newValue in
+                            guard newValue > 0, focusedHandicapPlayerID != nil else { return }
+                            withAnimation { proxy.scrollTo("legacy.handicapsRevealAnchor", anchor: .top) }
+                        }
+                        .onReceive(NotificationCenter.default.publisher(
+                            for: UIResponder.keyboardWillChangeFrameNotification
+                        )) { notification in
+                            guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+                            keyboardOverlapHeight = max(0, UIScreen.main.bounds.height - frame.origin.y)
+                        }
+                        .onReceive(NotificationCenter.default.publisher(
+                            for: UIResponder.keyboardWillHideNotification
+                        )) { _ in
+                            keyboardOverlapHeight = 0
                         }
                     }
                 } else {

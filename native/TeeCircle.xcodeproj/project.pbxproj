@@ -29,12 +29,12 @@
 		2D4AC77D17B46B9FEAA7FA55 /* TripPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FC7188BFFF767024C0922 /* TripPurchaseService.swift */; };
 		2FF58A726A3B1561637A7971 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = B662C764FD44720E6870C601 /* TeeCircleDesign */; };
 		38183BA3C994C08A842499EF /* TeeCircleStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D1C96E4B79DE376429EFB /* TeeCircleStoreTests.swift */; };
-		3AEACD54F7A8E21DA045F5A1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 030690BBB7434BF7A72346BB /* GoogleSignInSwift */; };
+		3AEACD54F7A8E21DA045F5A1 /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = 8411B36CB6011BA5CB2EB199 /* PostHog */; };
 		3B3CAB87604E05319FD46ADF /* CourseSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB7FAB18CA9896E4863454 /* CourseSearch.swift */; };
 		3F83A7843D25CFF2C2780700 /* GolferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1925A7607225494B840AD875 /* GolferDetailView.swift */; };
 		3F8A79D3A2AA7F936BFEC007 /* TeeCircleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */; };
 		43A90D02303852165CEF9CD1 /* LegacyTripSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */; };
-		43D374B6FC5811C2C35681B7 /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = 8411B36CB6011BA5CB2EB199 /* PostHog */; };
+		43D374B6FC5811C2C35681B7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = F76560B4010E924A8B522E9D /* RevenueCat */; };
 		490C4D734E7906F5A70AEE8B /* TeeCircleProductionServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E72FF1C046DCF2555DA96E /* TeeCircleProductionServices.swift */; };
 		4F6FD2665BF3A263E1F4894C /* IncomingAppRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BFEA38C2D6EDC3A992D9E /* IncomingAppRouteTests.swift */; };
 		5176C156207870173C4F8347 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = F146973F39EC08E5A93ECF3D /* TeeCircleDomain */; };
@@ -89,7 +89,6 @@
 		E7F8AB58CA76D671277062BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD22A67B70D20FF10775736 /* Assets.xcassets */; };
 		F09A4BFA67182D70116FD013 /* LegacyRoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A44FE943AE60029DF9AEA /* LegacyRoundsView.swift */; };
 		F0C3AFF4C15DE80A58B5BAAF /* APNsRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571CE2D9DD4C3A73C2D32E9 /* APNsRegistrationService.swift */; };
-		F15D4F2A329C34608434F854 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = F76560B4010E924A8B522E9D /* RevenueCat */; };
 		F22BDB627B3E66527F36D98F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686992E0ACBA7F898C761AE8 /* AppConfiguration.swift */; };
 		F76F4F130BC6DF52E772E80A /* MessagesTranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC505BC21AAE00CE643B91 /* MessagesTranscriptView.swift */; };
 		FB0315825F10006AFB33D2C7 /* CreateRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DEC9ACF50073092D3AF3ED /* CreateRoundView.swift */; };
@@ -255,9 +254,8 @@
 				E2CEE6B9E0D3DEF04E88A1BC /* TeeCircleActivities in Frameworks */,
 				BE07B753CB94AD4107197534 /* Supabase in Frameworks */,
 				78F161A1BEDDA1A5998C7285 /* GoogleSignIn in Frameworks */,
-				3AEACD54F7A8E21DA045F5A1 /* GoogleSignInSwift in Frameworks */,
-				43D374B6FC5811C2C35681B7 /* PostHog in Frameworks */,
-				F15D4F2A329C34608434F854 /* RevenueCat in Frameworks */,
+				3AEACD54F7A8E21DA045F5A1 /* PostHog in Frameworks */,
+				43D374B6FC5811C2C35681B7 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +678,6 @@
 				4A6EC9C2988E3C07E85C6BB8 /* TeeCircleActivities */,
 				068ECA501887C599CC6885C3 /* Supabase */,
 				B6232F804B67664700F7F23F /* GoogleSignIn */,
-				030690BBB7434BF7A72346BB /* GoogleSignInSwift */,
 				8411B36CB6011BA5CB2EB199 /* PostHog */,
 				F76560B4010E924A8B522E9D /* RevenueCat */,
 			);
@@ -1382,11 +1379,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		030690BBB7434BF7A72346BB /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E8B45A514FA8EE98E7AF5E56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
 		0630F4851A6D8FA39306A767 /* TeeCircleActivities */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TeeCircleActivities;

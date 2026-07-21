@@ -123,8 +123,6 @@ targets:
         product: Supabase
       - package: GoogleSignIn
         product: GoogleSignIn
-      - package: GoogleSignIn
-        product: GoogleSignInSwift
       - package: PostHog
         product: PostHog
       - package: RevenueCat
