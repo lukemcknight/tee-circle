@@ -19,6 +19,7 @@ declare
     'public.delete_trip_round_v1(uuid,uuid,timestamp with time zone)',
     'public.delete_user_account()',
     'public.end_live_activity_v1(text)',
+    'public.finalize_account_deletion_v1()',
     'public.get_account_deletion_blockers_v1()',
     'public.get_course_cards_v1()',
     'public.get_legacy_rounds_v1()',

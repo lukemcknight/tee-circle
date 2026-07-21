@@ -75,6 +75,7 @@ done < <(find "$ROOT/supabase/migrations" -maxdepth 1 -type f -name '*.sql' | so
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_function_acl_contract.sql"
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_behavior.sql"
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_edit_delete_behavior.sql"
+"${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_account_finalize_behavior.sql"
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_nonmember_captain_commands_behavior.sql"
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_release_integrity_behavior.sql"
 "${PSQL[@]}" -f "$ROOT/supabase/tests/tee_circle_v2_production_compat_behavior.sql"
