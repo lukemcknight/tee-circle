@@ -14,6 +14,7 @@ declare
     'public.create_trip_purchase_intent_v1(uuid,uuid)',
     'public.create_trip_round_v1(uuid,jsonb,uuid)',
     'public.create_trip_v1(jsonb,uuid)',
+    'public.decline_trip_seat_v1(uuid)',
     'public.delete_round(uuid)',
     'public.delete_trip_player_v1(uuid,uuid,timestamp with time zone)',
     'public.delete_trip_round_v1(uuid,uuid,timestamp with time zone)',
