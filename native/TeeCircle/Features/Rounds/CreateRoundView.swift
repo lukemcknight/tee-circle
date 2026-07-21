@@ -1,5 +1,6 @@
 import SwiftUI
 import TeeCircleDomain
+import TeeCircleAPI
 
 /// The original TeeCircle promise, rebuilt on the native trip model. A simple
 /// round is stored as a one-round trip so invites, scoring, and Messages all use
@@ -15,6 +16,10 @@ struct CreateRoundView: View {
     @State private var walkRide = "ride"
     @State private var guestNames = [""]
     @State private var isCreating = false
+    @StateObject private var courseSearch = CourseSearchController(
+        apiKey: AppConfiguration.load().googlePlacesAPIKey
+    )
+    @State private var suppressCourseSearch = false
 
     var body: some View {
         ZStack {
@@ -50,6 +55,17 @@ struct CreateRoundView: View {
                   store.courseCards.first(where: { $0.id == selectedCourseCardID })?.holes.count != newValue
             else { return }
             self.selectedCourseCardID = nil
+        }
+        .onChange(of: courseName) { newValue in
+            if suppressCourseSearch {
+                suppressCourseSearch = false
+                return
+            }
+            guard courseIsFocused else { return }
+            courseSearch.update(query: newValue)
+        }
+        .onChange(of: courseIsFocused) { focused in
+            if !focused { courseSearch.dismiss() }
         }
     }
 
@@ -150,6 +166,17 @@ struct CreateRoundView: View {
             .overlay {
                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .stroke(courseIsFocused ? TeeCircleBrand.signal.opacity(0.7) : TeeCircleBrand.hairline)
+            }
+
+            if courseSearch.isEnabled {
+                CourseSearchSuggestionList(controller: courseSearch) { prediction in
+                    Task {
+                        suppressCourseSearch = true
+                        courseName = await courseSearch.select(prediction)
+                        selectedCourseCardID = nil
+                        courseIsFocused = false
+                    }
+                }
             }
 
             if !store.courseCards.isEmpty {

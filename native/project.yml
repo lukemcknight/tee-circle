@@ -81,6 +81,7 @@ targets:
         TEEGoogleServerClientID: $(TEE_GOOGLE_SERVER_CLIENT_ID)
         TEERevenueCatPublicSDKKey: $(TEE_REVENUECAT_PUBLIC_SDK_KEY)
         TEERevenueCatTripProductID: $(TEE_REVENUECAT_PRODUCT_ID)
+        TEEGooglePlacesAPIKey: $(TEE_GOOGLE_PLACES_API_KEY)
         TEEUseMockData: $(TEE_USE_MOCK_DATA)
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false

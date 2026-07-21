@@ -17,6 +17,7 @@ final class TeeCircleStoreTests: XCTestCase {
                 googleServerClientID: "",
                 revenueCatPublicKey: "",
                 revenueCatTripProductID: "com.teecircle.app.trip_unlock_2999",
+                googlePlacesAPIKey: "",
                 useMockData: true
             )
         )

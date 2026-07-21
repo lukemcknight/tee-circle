@@ -46,6 +46,8 @@
 	<true/>
 	<key>TEEGoogleIOSClientID</key>
 	<string>$(TEE_GOOGLE_IOS_CLIENT_ID)</string>
+	<key>TEEGooglePlacesAPIKey</key>
+	<string>$(TEE_GOOGLE_PLACES_API_KEY)</string>
 	<key>TEEGoogleServerClientID</key>
 	<string>$(TEE_GOOGLE_SERVER_CLIENT_ID)</string>
 	<key>TEEPostHogHost</key>

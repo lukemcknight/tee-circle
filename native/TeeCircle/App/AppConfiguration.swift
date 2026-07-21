@@ -11,6 +11,7 @@ struct AppConfiguration: Sendable {
     let googleServerClientID: String
     let revenueCatPublicKey: String
     let revenueCatTripProductID: String
+    let googlePlacesAPIKey: String
     let useMockData: Bool
 
     static func load(bundle: Bundle = .main) -> AppConfiguration {
@@ -32,6 +33,7 @@ struct AppConfiguration: Sendable {
             googleServerClientID: value("TEEGoogleServerClientID"),
             revenueCatPublicKey: value("TEERevenueCatPublicSDKKey"),
             revenueCatTripProductID: value("TEERevenueCatTripProductID"),
+            googlePlacesAPIKey: value("TEEGooglePlacesAPIKey"),
             useMockData: shouldUseMockData(configuredValue: value("TEEUseMockData"))
         )
     }

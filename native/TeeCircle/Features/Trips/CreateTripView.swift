@@ -1,5 +1,6 @@
 import SwiftUI
 import TeeCircleDomain
+import TeeCircleAPI
 
 struct CreateTripView: View {
     private enum Step: Int, CaseIterable {
@@ -24,6 +25,10 @@ struct CreateTripView: View {
     @State private var selectedCourseRound = 0
     @State private var isCreating = false
     @State private var didSeedCaptain = false
+    @StateObject private var courseSearch = CourseSearchController(
+        apiKey: AppConfiguration.load().googlePlacesAPIKey
+    )
+    @FocusState private var focusedCourseRoundID: UUID?
 
     var body: some View {
         ZStack {
@@ -117,7 +122,24 @@ struct CreateTripView: View {
                     }
                     TextField("Course name", text: $round.courseName)
                         .textFieldStyle(.roundedBorder)
+                        .focused($focusedCourseRoundID, equals: round.id)
                         .accessibilityIdentifier("create.courseName")
+                        .onChange(of: round.courseName) { newValue in
+                            guard focusedCourseRoundID == round.id else { return }
+                            courseSearch.update(query: newValue)
+                        }
+                    if courseSearch.isEnabled, focusedCourseRoundID == round.id {
+                        CourseSearchSuggestionList(controller: courseSearch) { prediction in
+                            let roundID = round.id
+                            Task {
+                                focusedCourseRoundID = nil
+                                let name = await courseSearch.select(prediction)
+                                if let index = draft.rounds.firstIndex(where: { $0.id == roundID }) {
+                                    draft.rounds[index].courseName = name
+                                }
+                            }
+                        }
+                    }
                     DatePicker("Tee time", selection: $round.scheduledAt)
                     Picker("Length", selection: $round.holeCount) {
                         Text("9 holes").tag(9)

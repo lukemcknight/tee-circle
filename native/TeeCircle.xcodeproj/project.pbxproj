@@ -30,6 +30,7 @@
 		2FF58A726A3B1561637A7971 /* TeeCircleDesign in Frameworks */ = {isa = PBXBuildFile; productRef = B662C764FD44720E6870C601 /* TeeCircleDesign */; };
 		38183BA3C994C08A842499EF /* TeeCircleStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D1C96E4B79DE376429EFB /* TeeCircleStoreTests.swift */; };
 		3AEACD54F7A8E21DA045F5A1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 030690BBB7434BF7A72346BB /* GoogleSignInSwift */; };
+		3B3CAB87604E05319FD46ADF /* CourseSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB7FAB18CA9896E4863454 /* CourseSearch.swift */; };
 		3F83A7843D25CFF2C2780700 /* GolferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1925A7607225494B840AD875 /* GolferDetailView.swift */; };
 		3F8A79D3A2AA7F936BFEC007 /* TeeCircleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */; };
 		43A90D02303852165CEF9CD1 /* LegacyTripSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3760D30F425C825C0ABDFA /* LegacyTripSetupView.swift */; };
@@ -46,6 +47,7 @@
 		64D160F958B4C0E5CBF1C582 /* TeeCircleDomain in Frameworks */ = {isa = PBXBuildFile; productRef = C5F4A771BBBD6FB112F2EAF9 /* TeeCircleDomain */; };
 		699EB16B86DF5F192223B55D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB3019B420851502DD26303 /* RootView.swift */; };
 		6D093F349F7E59813BE1B5B5 /* TeeCircleStore+Production.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CA79425F6BE073AD4EBD44 /* TeeCircleStore+Production.swift */; };
+		6D25BE94F2B3359683D4AA52 /* CourseSearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE61BB51CB322C476C0DBC7 /* CourseSearchControllerTests.swift */; };
 		739C24E3BE9C00AB37A9FB67 /* TeeCircleScoring in Frameworks */ = {isa = PBXBuildFile; productRef = B2A11A23CD1F18FCE53F2802 /* TeeCircleScoring */; };
 		757C89A1BF0BD2E5692057BF /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A71DFE3959B71612B52B61 /* AppRoute.swift */; };
 		7597CA6B990FF76CC09FB9CC /* ProfileIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7CB41C1F40E01183759172 /* ProfileIdentity.swift */; };
@@ -163,6 +165,7 @@
 		33BC667273DCCBF102A50E05 /* GoogleSignInBrandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInBrandButton.swift; sourceTree = "<group>"; };
 		35410F122761CCD80C82C4D6 /* TeeCircleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleStore.swift; sourceTree = "<group>"; };
 		3BE722E2FA3B7976E12F0913 /* TeeCircleLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleLiveActivityWidget.swift; sourceTree = "<group>"; };
+		3DAB7FAB18CA9896E4863454 /* CourseSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearch.swift; sourceTree = "<group>"; };
 		45A71DFE3959B71612B52B61 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		481993271B93AAC9F8A5160C /* TeeCircleWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TeeCircleWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AF13A489E36D3C7F93A286 /* MessagesExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesExpandedView.swift; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 		C900D8DB7F8416339E45B465 /* MessagesRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesRootView.swift; sourceTree = "<group>"; };
 		C920B9133741163C2C9151A2 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		CAD22A67B70D20FF10775736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDE61BB51CB322C476C0DBC7 /* CourseSearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchControllerTests.swift; sourceTree = "<group>"; };
 		CE42181D77FA9A4731AD495F /* TripHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHubView.swift; sourceTree = "<group>"; };
 		D1D2475AC785D573CEE5F682 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D2D211DC615160AB89F6A706 /* TeeCircleLiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeeCircleLiveActivityService.swift; sourceTree = "<group>"; };
@@ -522,6 +526,7 @@
 				C3D809D6503C43CD153505D0 /* Purchases */,
 				8797F8C5E8E0928DEE544A93 /* Rounds */,
 				85DA767852E89E736FD8D0F9 /* Scoring */,
+				D9ECFA6479FFC023343D81A6 /* Shared */,
 				01D859D91F9571FCD0708F5D /* Trips */,
 			);
 			path = Features;
@@ -531,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				7D99CCBB4F8F80A9CC2D1A78 /* AppConfigurationTests.swift */,
+				CDE61BB51CB322C476C0DBC7 /* CourseSearchControllerTests.swift */,
 				B86BFEA38C2D6EDC3A992D9E /* IncomingAppRouteTests.swift */,
 				6CDBC79605343407B248F60A /* NativeServiceContractTests.swift */,
 				FA07010506AA5E3456B94883 /* ProfileIdentityTests.swift */,
@@ -572,6 +578,14 @@
 				8F70D03B7277BA3CC86DA233 /* TeeCircleWidgetsBundle.swift */,
 			);
 			path = TeeCircleWidgets;
+			sourceTree = "<group>";
+		};
+		D9ECFA6479FFC023343D81A6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3DAB7FAB18CA9896E4863454 /* CourseSearch.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		DECAF26401795478002C4A94 /* TeeCircleUITests */ = {
@@ -833,6 +847,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44F01FA523D8B3A72A22739 /* AppConfigurationTests.swift in Sources */,
+				6D25BE94F2B3359683D4AA52 /* CourseSearchControllerTests.swift in Sources */,
 				4F6FD2665BF3A263E1F4894C /* IncomingAppRouteTests.swift in Sources */,
 				16086194D52411F39EAF74F5 /* NativeServiceContractTests.swift in Sources */,
 				22D430CB670C2E23AB1E6934 /* ProfileIdentityTests.swift in Sources */,
@@ -867,6 +882,7 @@
 				757C89A1BF0BD2E5692057BF /* AppRoute.swift in Sources */,
 				8E46B6DE7EABFAE64BE5C6D4 /* AuthenticationView.swift in Sources */,
 				1A7F73AE9982E47CC1A06DD2 /* Brand.swift in Sources */,
+				3B3CAB87604E05319FD46ADF /* CourseSearch.swift in Sources */,
 				FB0315825F10006AFB33D2C7 /* CreateRoundView.swift in Sources */,
 				E6CC22D30867265B5572FCAD /* CreateTripView.swift in Sources */,
 				648C8275BC09115640202117 /* EditIdentityView.swift in Sources */,
