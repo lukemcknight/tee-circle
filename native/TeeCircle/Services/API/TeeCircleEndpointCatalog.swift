@@ -15,6 +15,7 @@ enum TeeCircleEndpointCatalog {
     static let deleteTripRound = rpc("delete_trip_round_v1")
     static let setRoundParticipation = rpc("set_round_participation_v1")
     static let releaseTripPlayer = rpc("release_trip_player_claim_v1")
+    static let declineTripSeat = rpc("decline_trip_seat_v1")
     static let updateTripPlayer = rpc("update_trip_player_v1")
     static let deleteTripPlayer = rpc("delete_trip_player_v1")
     static let setTripStatus = rpc("set_trip_status_v1")

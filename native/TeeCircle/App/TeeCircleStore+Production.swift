@@ -645,6 +645,25 @@ extension TeeCircleStore {
         } catch { report(error) }
     }
 
+    func declineSeatProduction(tripID: String, playerID: String) async {
+        guard !configuration.useMockData else {
+            declineSeat(tripID: tripID, playerID: playerID)
+            return
+        }
+        guard let production else { return }
+        do {
+            _ = try await production.repository.declineTripSeat(id: playerID)
+            // Declining removes this user's trip membership server-side, so the
+            // trip is no longer readable: drop it locally and return home.
+            trips.removeAll { $0.id == tripID }
+            inviteCredentials.removeValue(forKey: tripID)
+            inviteMetadataByTrip.removeValue(forKey: tripID)
+            try? await production.invites.remove(tripID: tripID)
+            path.removeAll()
+            try? await synchronizeMessagesBridge()
+        } catch { report(error) }
+    }
+
     func setTripPlayerRoleProduction(
         tripID: String,
         playerID: String,

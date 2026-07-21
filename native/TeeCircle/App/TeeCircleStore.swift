@@ -291,6 +291,26 @@ final class TeeCircleStore: ObservableObject {
         }
     }
 
+    func declineSeat(tripID: String, playerID: String) {
+        replaceTrip(tripID) { experience in
+            guard let index = experience.players.firstIndex(where: { $0.id == playerID }),
+                  experience.players[index].claimedUserId == currentUserID,
+                  experience.players[index].role != .captain
+            else { return }
+            let player = experience.players[index]
+            experience.players[index] = TripPlayer(
+                id: player.id,
+                tripId: player.tripId,
+                claimedUserId: nil,
+                displayName: player.displayName,
+                role: player.role,
+                rsvp: .declined,
+                handicapSnapshot: player.handicapSnapshot,
+                sortOrder: player.sortOrder
+            )
+        }
+    }
+
     func rotateInvite(tripID: String) {
         replaceTrip(tripID) { experience in
             guard experience.trip.ownerId == currentUserID else { return }

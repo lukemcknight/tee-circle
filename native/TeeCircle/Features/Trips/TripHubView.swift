@@ -294,6 +294,17 @@ struct TripHubView: View {
                             Text("Open")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
+                        } else if player.claimedUserId == store.currentUserID, player.role != .captain {
+                            Menu {
+                                Button("Can’t make it", role: .destructive) {
+                                    Task { await store.declineSeatProduction(tripID: tripID, playerID: player.id) }
+                                }
+                            } label: {
+                                Label("You", systemImage: "checkmark.seal.fill")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(TeeCircleBrand.moss)
+                            }
+                            .accessibilityIdentifier("trip.decline.\(player.id)")
                         } else {
                             Label("Claimed", systemImage: "checkmark.seal.fill")
                                 .font(.caption.weight(.semibold))

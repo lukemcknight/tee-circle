@@ -53,6 +53,30 @@ final class TeeCircleStoreTests: XCTestCase {
         XCTAssertNotEqual(created.rounds[0].holes[0].number, 0)
     }
 
+    func testDeclineSeatReleasesOwnPlayerSeat() throws {
+        let store = makeStore()
+        store.replaceTrip("pinehurst-2026") { experience in
+            experience.players[1] = TripPlayer(
+                id: "sean",
+                tripId: "pinehurst-2026",
+                claimedUserId: store.currentUserID,
+                displayName: "Sean",
+                role: .player,
+                rsvp: .accepted,
+                handicapSnapshot: 12.1,
+                sortOrder: 1
+            )
+        }
+
+        store.declineSeat(tripID: "pinehurst-2026", playerID: "sean")
+
+        let seat = try XCTUnwrap(
+            store.trip(id: "pinehurst-2026")?.players.first { $0.id == "sean" }
+        )
+        XCTAssertNil(seat.claimedUserId)
+        XCTAssertEqual(seat.rsvp, .declined)
+    }
+
     func testSingleRoundDraftKeepsTheOriginalMVPDefaults() throws {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = try XCTUnwrap(TimeZone(secondsFromGMT: 0))

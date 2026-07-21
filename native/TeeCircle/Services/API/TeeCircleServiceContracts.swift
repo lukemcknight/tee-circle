@@ -500,6 +500,13 @@ struct TripPlayerClaimResultV1: Codable, Equatable, Hashable, Sendable {
     let claimed: Bool
 }
 
+struct DeclineTripSeatResultV1: Codable, Equatable, Hashable, Sendable {
+    let tripId: String
+    let tripPlayerId: String
+    let rsvp: NativeRSVPStatus
+    let claimed: Bool
+}
+
 enum HandicapPatchV1: Equatable, Sendable {
     case unchanged
     case clear

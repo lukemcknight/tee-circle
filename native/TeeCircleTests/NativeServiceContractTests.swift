@@ -68,6 +68,7 @@ final class NativeServiceContractTests: XCTestCase {
     func testRepositoryCatalogUsesOnlyVersionedCommands() {
         XCTAssertTrue(TeeCircleEndpointCatalog.createTrip.hasSuffix("/create_trip_v1"))
         XCTAssertTrue(TeeCircleEndpointCatalog.acceptTripInvite.hasSuffix("/accept_trip_invite_v1"))
+        XCTAssertTrue(TeeCircleEndpointCatalog.declineTripSeat.hasSuffix("/decline_trip_seat_v1"))
         XCTAssertTrue(TeeCircleEndpointCatalog.updateCourseCard.hasSuffix("/update_course_card_v1"))
         XCTAssertTrue(TeeCircleEndpointCatalog.updateTripRound.hasSuffix("/update_trip_round_v1"))
         XCTAssertTrue(TeeCircleEndpointCatalog.deleteTripRound.hasSuffix("/delete_trip_round_v1"))

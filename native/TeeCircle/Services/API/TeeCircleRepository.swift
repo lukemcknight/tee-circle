@@ -20,6 +20,7 @@ protocol TeeCircleRepositoryProtocol: TripPurchaseRepositoryProtocol {
     func deleteTripRound(id: String, idempotencyKey: String, expectedNativeUpdatedAt: Date?) async throws -> DeleteTripRoundResultV1
     func setRoundParticipation(roundID: String, tripPlayerID: String, courseHandicap: Int?, playingHandicap: Int?, status: RoundParticipationStatusV1) async throws -> SetRoundParticipationResultV1
     func releaseTripPlayerClaim(id: String) async throws -> TripPlayerClaimResultV1
+    func declineTripSeat(id: String) async throws -> DeclineTripSeatResultV1
     func updateTripPlayer(id: String, input: UpdateTripPlayerInputV1) async throws -> UpdateTripPlayerResultV1
     func deleteTripPlayer(id: String, idempotencyKey: String, expectedUpdatedAt: Date?) async throws -> DeleteTripPlayerResultV1
     func transitionTrip(id: String, from: TripLifecycle, to: TripLifecycle) async throws -> TripLifecycleResultV1
@@ -254,6 +255,13 @@ actor TeeCircleRepository: TeeCircleRepositoryProtocol {
     func releaseTripPlayerClaim(id: String) async throws -> TripPlayerClaimResultV1 {
         try await callRPC(
             path: TeeCircleEndpointCatalog.releaseTripPlayer,
+            body: TripPlayerIDArguments(pTripPlayerId: id)
+        )
+    }
+
+    func declineTripSeat(id: String) async throws -> DeclineTripSeatResultV1 {
+        try await callRPC(
+            path: TeeCircleEndpointCatalog.declineTripSeat,
             body: TripPlayerIDArguments(pTripPlayerId: id)
         )
     }
