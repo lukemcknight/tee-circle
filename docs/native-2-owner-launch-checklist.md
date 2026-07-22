@@ -19,7 +19,7 @@ Paste each file wholesale into the Supabase SQL editor, in this order:
 
 ## 2. Deploy the `delete-account-v1` edge function
 
-- [ ] `npx supabase login` (if not already), then `npx supabase functions deploy delete-account-v1`
+- [x] `npx supabase login` (if not already), then `npx supabase functions deploy delete-account-v1` — deployed 2026-07-21, verified 401 on unauthenticated probe
 - [ ] Or: Supabase dashboard → Edge Functions → upload from `supabase/functions/delete-account-v1/`
 - [ ] JWT verification stays on (`supabase/config.toml` → `[functions.delete-account-v1]` → `verify_jwt = true`)
 
