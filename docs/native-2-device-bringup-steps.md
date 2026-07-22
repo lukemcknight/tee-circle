@@ -65,7 +65,7 @@ Anything that fails: add a BRING-* row to the bring-up log with what you saw.
 
 ## 5. Wrap-up (after all of §4 passes)
 - [ ] Close Xcode if it still has the tee-circle-2 worktree project open.
-- [ ] Remove the worktree (from the main checkout):
+- [x] Remove the worktree (from the main checkout): — done 2026-07-21 (agent); stale worktree was the likely source of repeated old-build installs (BRING-8)
         git worktree remove ../tee-circle-2 --force
       (--force is needed because ignored files live there; the main checkout
       has the originals, including Secrets.xcconfig.)

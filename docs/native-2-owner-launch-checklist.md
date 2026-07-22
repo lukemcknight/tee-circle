@@ -56,7 +56,7 @@ Paste each file wholesale into the Supabase SQL editor, in this order:
 ## 8. M0 exit confirmation
 
 - [ ] Tick `docs/native-2-device-bringup-steps.md` §4 (three sign-ins + relaunch)
-- [ ] Tick `docs/native-2-device-bringup-steps.md` §5 (worktree removal)
+- [x] Tick `docs/native-2-device-bringup-steps.md` §5 (worktree removal) — worktree removed 2026-07-21
 - [ ] Commit the ticks
 
 ## 9. On-device production checks
