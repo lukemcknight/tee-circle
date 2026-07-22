@@ -34,7 +34,9 @@ Paste each file wholesale into the Supabase SQL editor, in this order:
   ```sql
   update tee_internal.runtime_flags set enabled = true where key = 'public_previews_enabled';
   ```
-- [ ] Verify a share link renders the public Follow-Live page
+- [x] SUPABASE_URL env added + production deployed (2026-07-21, via CLI — no dashboard login needed)
+- [ ] Verify a real share link renders the public Follow-Live page (on-device, needs a live trip)
+- [ ] Domain cleanup (non-blocking, before App Store submission): teecircle.app currently serves a STALE deployment from another host — it has 4 mixed A records and no /api route. The app itself uses teecircle.vercel.app (Base.xcconfig TEE_WEB_HOST), so nothing user-facing breaks. Fix: registrar DNS -> Vercel per `npx vercel domains add teecircle.app` guidance, or keep vercel.app and update the App Store support/privacy URLs accordingly.
 
 ## 5. Google Places key
 
