@@ -139,13 +139,18 @@ final class SupabaseSessionService: ObservableObject, BearerTokenProviding {
     }
 
     @discardableResult
-    func signInWithGoogle(idToken: String, accessToken: String? = nil) async throws -> NativeAuthSession {
+    func signInWithGoogle(
+        idToken: String,
+        accessToken: String? = nil,
+        nonce: String? = nil
+    ) async throws -> NativeAuthSession {
         guard !idToken.isEmpty else { throw NativeAuthServiceError.invalidIdentityToken }
         let session = try await client.auth.signInWithIdToken(
             credentials: OpenIDConnectCredentials(
                 provider: .google,
                 idToken: idToken,
-                accessToken: accessToken
+                accessToken: accessToken,
+                nonce: nonce
             )
         )
         return apply(session)
