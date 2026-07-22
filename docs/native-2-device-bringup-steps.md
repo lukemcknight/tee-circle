@@ -55,16 +55,16 @@ In order — stop at the first step that fixes it:
       purchases work resumes.
 
 ## 4. The three sign-ins (exit criteria — do all three on the iPhone)
-- [ ] Email code: enter your email → code arrives (6 digits, in the email) →
+- [x] Email code: enter your email → code arrives (6 digits, in the email) →
       verify → if this is a fresh account, complete the username/profile screen
       (this proves the kill switch is on).
-- [ ] Sign out (Profile → sign out), then Sign in with Apple → lands in the app.
-- [ ] Sign out, then Continue with Google → lands in the app.
+- [x] Sign out (Profile → sign out), then Sign in with Apple → lands in the app.
+- [x] Sign out, then Continue with Google (worked 2026-07-21 on corrected nonce build, Skip-nonce-checks OFF) → lands in the app.
 - [ ] Kill the app, relaunch: still signed in.
 Anything that fails: add a BRING-* row to the bring-up log with what you saw.
 
 ## 5. Wrap-up (after all of §4 passes)
-- [ ] Close Xcode if it still has the tee-circle-2 worktree project open.
+- [x] Close Xcode if it still has the tee-circle-2 worktree project open.
 - [x] Remove the worktree (from the main checkout): — done 2026-07-21 (agent); stale worktree was the likely source of repeated old-build installs (BRING-8)
         git worktree remove ../tee-circle-2 --force
       (--force is needed because ignored files live there; the main checkout
