@@ -98,17 +98,17 @@ extension TeeCircleStore {
     func signInWithGoogle(presenting viewController: UIViewController) async {
         guard let production else { return reportConfigurationError() }
         do {
-            // GIDSignIn embeds this nonce verbatim in the id_token's `nonce` claim
-            // (unlike Apple, which the SDK hashes), so the same raw value is
-            // forwarded to Supabase below. AppleSignInNonce is a generic
-            // random-string+SHA256 pair despite the name; reused here to avoid a
-            // second generator for the same job.
+            // Hashed value goes in the OIDC request (lands verbatim in the
+            // id_token's nonce claim); raw value goes to Supabase, which
+            // hashes it for comparison — same split as the Apple flow.
+            // AppleSignInNonce is a generic random-string+SHA256 pair despite
+            // the name; reused here to avoid a second generator for the same job.
             let nonce = AppleSignInNonce.make()
             let result = try await GIDSignIn.sharedInstance.signIn(
                 withPresenting: viewController,
                 hint: nil,
                 additionalScopes: nil,
-                nonce: nonce.rawValue
+                nonce: nonce.sha256Value
             )
             guard let idToken = result.user.idToken?.tokenString else {
                 throw NativeAuthServiceError.invalidIdentityToken
